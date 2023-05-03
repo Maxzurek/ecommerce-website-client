@@ -23,16 +23,13 @@
             "type": "chrome",
             "sourceMaps": true,
             "smartStep": true,
+            "userDataDir": false,
             "urlFilter": "http://127.0.0.1:5173/*",
             "webRoot": "${workspaceFolder}",
             "preLaunchTask": "npm-run-dev",
             "postDebugTask": "terminate-all-tasks",
             "skipFiles": ["**/node_modules/**"],
-            "runtimeArgs": [
-                "http://127.0.0.1:5173/",
-                "--remote-debugging-port=9222",
-                "--profile-directory=Profile 1"
-            ]
+            "runtimeArgs": ["http://127.0.0.1:5173/", "--remote-debugging-port=9222"]
         }
     ]
 }
