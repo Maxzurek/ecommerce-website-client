@@ -1,0 +1,33 @@
+.header {
+    position: sticky;
+    top: 0;
+
+    &__top-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 38px;
+        color: var(--main-font-color);
+        background-color: var(--main-bg-color);
+        letter-spacing: 4px;
+        font: var(--font-text-1);
+    }
+
+    &__columns {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: var(--secondary-bg-color);
+        height: 128px;
+    }
+
+    &__column {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__logo {
+        width: 128px;
+    }
+}
