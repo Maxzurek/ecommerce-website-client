@@ -1,0 +1,43 @@
+.search-bar {
+    display: flex;
+    flex-direction: row;
+
+    &:hover,
+    &--focused {
+        border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+        margin-bottom: -2px;
+    }
+
+    &__input {
+        outline: none;
+        border: none;
+        font-size: 16px;
+        padding: 8px 0;
+        max-width: 100px;
+        background-color: transparent;
+    }
+
+    &__clear-button {
+        visibility: hidden;
+        width: 8px;
+        margin: 0 8px;
+        fill: white;
+        opacity: 0.5;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 1;
+        }
+
+        &--visible {
+            visibility: visible;
+        }
+    }
+
+    &__search-icon {
+        width: 14px;
+        margin: 0 8px;
+        fill: white;
+        opacity: 0.7;
+    }
+}

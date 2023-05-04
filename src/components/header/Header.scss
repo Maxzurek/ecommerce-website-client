@@ -27,7 +27,24 @@
         justify-content: center;
     }
 
+    &__controls {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+    }
+
     &__logo {
         width: 128px;
+    }
+
+    &__menu {
+        width: 36px;
+        fill: white;
+        opacity: 0.7;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 1;
+        }
     }
 }

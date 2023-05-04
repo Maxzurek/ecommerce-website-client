@@ -1,0 +1,20 @@
+.login-button {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    gap: 12px;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.7;
+    }
+
+    &__user-icon {
+        width: 20px;
+        fill: white;
+    }
+
+    &__text {
+        font: var(--font-text-2);
+    }
+}

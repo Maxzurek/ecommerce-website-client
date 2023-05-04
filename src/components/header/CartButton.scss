@@ -1,0 +1,32 @@
+.cart-button {
+    display: flex;
+    position: relative;
+    opacity: 0.5;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 1;
+    }
+
+    &__item-count {
+        position: absolute;
+        font-size: 12px;
+
+        &--one-digit {
+            left: 12px;
+        }
+        &--two-digit {
+            left: 10px;
+        }
+    }
+
+    &__icon {
+        width: 28px;
+        fill: white;
+    }
+
+    &__text {
+        align-self: flex-end;
+        font: var(--font-text-2);
+    }
+}
