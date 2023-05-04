@@ -2,6 +2,7 @@ import { Outlet, createBrowserRouter } from "react-router-dom";
 import Home from "./routes/home/Home";
 import Shop from "./routes/shop/Shop";
 import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
 
 export const router = createBrowserRouter([
     {
@@ -9,6 +10,7 @@ export const router = createBrowserRouter([
             <>
                 <Header />
                 <Outlet />
+                <Footer />
             </>
         ),
         children: [
