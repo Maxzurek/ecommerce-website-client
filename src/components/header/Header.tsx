@@ -6,15 +6,18 @@ import { useRef, useState } from "react";
 import CartButton from "./CartButton";
 import LoginButton from "./LoginButton";
 import Menu from "../../assets/Menu.icon";
+import SidebarMenu from "../sidebarMenu/SidebarMenu";
 import MediaQuery, { MediaWidth } from "../mediaQuery/MediaQuery";
 
 const Header = () => {
     const [searchInputValue, setSearchInputValue] = useState("");
+    const [isSidebarMenuOpen, setIsSidebarMenuOpen] = useState(false);
 
     const searchBarRef = useRef<HTMLInputElement>();
+    const scrollAnchorRef = useRef<HTMLDivElement>();
 
     const handleClickLogo = () => {
-        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+        document.body.scrollTo({ top: 0, behavior: "smooth" });
     };
 
     const handleChangeSearchBar = (e: React.FormEvent<HTMLInputElement>) => {
@@ -31,7 +34,11 @@ const Header = () => {
     };
 
     const handleClickMenu = () => {
-        // TODO
+        setIsSidebarMenuOpen(true);
+    };
+
+    const handleCloseSidebarMenu = () => {
+        setIsSidebarMenuOpen(false);
     };
 
     return (
@@ -73,6 +80,8 @@ const Header = () => {
                     />
                 </div>
             </MediaQuery>
+            <SidebarMenu isOpen={isSidebarMenuOpen} onClose={handleCloseSidebarMenu} />
+            <div ref={scrollAnchorRef} />
         </div>
     );
 };
