@@ -6,11 +6,9 @@ import { useRef, useState } from "react";
 import CartButton from "./CartButton";
 import LoginButton from "./LoginButton";
 import Menu from "../../assets/Menu.icon";
-import useMedia from "../../hooks/useMedia";
+import MediaQuery, { MediaWidth } from "../mediaQuery/MediaQuery";
 
 const Header = () => {
-    const { isTablet, isMobile, isDesktop } = useMedia();
-
     const [searchInputValue, setSearchInputValue] = useState("");
 
     const searchBarRef = useRef<HTMLInputElement>();
@@ -25,7 +23,7 @@ const Header = () => {
 
     const handleClearSearchBar = () => {
         setSearchInputValue("");
-        searchBarRef.current.focus();
+        searchBarRef.current?.focus();
     };
 
     const handleClickCart = () => {
@@ -49,29 +47,23 @@ const Header = () => {
                 </div>
                 <div className="header__column">
                     <div className="header__controls">
-                        {(isTablet || isMobile) && (
-                            <>
-                                <CartButton itemCount={0} onClick={handleClickCart} />
-                                <Menu className="header__menu" onClick={handleClickMenu} />
-                            </>
-                        )}
-                        {isDesktop && (
-                            <>
-                                <SearchBar
-                                    ref={searchBarRef}
-                                    value={searchInputValue}
-                                    onChange={handleChangeSearchBar}
-                                    onClear={handleClearSearchBar}
-                                />
-                                <CartButton itemCount={0} onClick={handleClickCart} />
-                                <LoginButton />
-                                <Menu className="header__menu" onClick={handleClickMenu} />
-                            </>
-                        )}
+                        <MediaQuery minMediaWidth={MediaWidth.lg}>
+                            <SearchBar
+                                ref={searchBarRef}
+                                value={searchInputValue}
+                                onChange={handleChangeSearchBar}
+                                onClear={handleClearSearchBar}
+                            />
+                        </MediaQuery>
+                        <CartButton itemCount={0} onClick={handleClickCart} />
+                        <MediaQuery minMediaWidth={MediaWidth.sm}>
+                            <LoginButton />
+                        </MediaQuery>
+                        <Menu className="header__menu" onClick={handleClickMenu} />
                     </div>
                 </div>
             </div>
-            {(isTablet || isMobile) && (
+            <MediaQuery maxMediaWidth={MediaWidth.lg}>
                 <div className="header__touch-search-bar">
                     <SearchBar
                         ref={searchBarRef}
@@ -80,7 +72,7 @@ const Header = () => {
                         onClear={handleClearSearchBar}
                     />
                 </div>
-            )}
+            </MediaQuery>
         </div>
     );
 };
