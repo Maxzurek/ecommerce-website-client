@@ -6,8 +6,11 @@ import { useRef, useState } from "react";
 import CartButton from "./CartButton";
 import LoginButton from "./LoginButton";
 import Menu from "../../assets/Menu.icon";
+import useMedia from "../../hooks/useMedia";
 
 const Header = () => {
+    const { isTablet, isMobile, isDesktop } = useMedia();
+
     const [searchInputValue, setSearchInputValue] = useState("");
 
     const searchBarRef = useRef<HTMLInputElement>();
@@ -46,18 +49,38 @@ const Header = () => {
                 </div>
                 <div className="header__column">
                     <div className="header__controls">
-                        <SearchBar
-                            ref={searchBarRef}
-                            value={searchInputValue}
-                            onChange={handleChangeSearchBar}
-                            onClear={handleClearSearchBar}
-                        />
-                        <CartButton itemCount={0} onClick={handleClickCart} />
-                        <LoginButton />
-                        <Menu className="header__menu" onClick={handleClickMenu} />
+                        {(isTablet || isMobile) && (
+                            <>
+                                <CartButton itemCount={0} onClick={handleClickCart} />
+                                <Menu className="header__menu" onClick={handleClickMenu} />
+                            </>
+                        )}
+                        {isDesktop && (
+                            <>
+                                <SearchBar
+                                    ref={searchBarRef}
+                                    value={searchInputValue}
+                                    onChange={handleChangeSearchBar}
+                                    onClear={handleClearSearchBar}
+                                />
+                                <CartButton itemCount={0} onClick={handleClickCart} />
+                                <LoginButton />
+                                <Menu className="header__menu" onClick={handleClickMenu} />
+                            </>
+                        )}
                     </div>
                 </div>
             </div>
+            {(isTablet || isMobile) && (
+                <div className="header__touch-search-bar">
+                    <SearchBar
+                        ref={searchBarRef}
+                        value={searchInputValue}
+                        onChange={handleChangeSearchBar}
+                        onClear={handleClearSearchBar}
+                    />
+                </div>
+            )}
         </div>
     );
 };

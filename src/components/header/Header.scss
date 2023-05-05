@@ -1,3 +1,5 @@
+@use "../../scss/MediaBreakpoints.scss" as media;
+
 .header {
     position: sticky;
     top: 0;
@@ -7,7 +9,7 @@
         align-items: center;
         justify-content: center;
         height: 38px;
-        color: var(--main-font-color);
+        color: var(--main-font-color-dark);
         background-color: var(--main-bg-color);
         letter-spacing: 4px;
         font: var(--font-text-1);
@@ -15,6 +17,7 @@
 
     &__columns {
         display: flex;
+        padding-inline: var(--padding-inline-root-xs);
         flex-direction: row;
         justify-content: space-between;
         background-color: var(--secondary-bg-color);
@@ -33,6 +36,13 @@
         gap: 32px;
     }
 
+    &__touch-search-bar {
+        display: flex;
+        justify-content: center;
+        background-color: var(--secondary-bg-color);
+        padding-bottom: 8px;
+    }
+
     &__logo {
         width: 128px;
     }
@@ -45,6 +55,12 @@
 
         &:hover {
             opacity: 1;
+        }
+    }
+
+    @include media.sm {
+        &__columns {
+            padding-inline: var(--padding-inline-root-sm);
         }
     }
 }

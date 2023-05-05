@@ -16,11 +16,24 @@
     --secondary-bg-color: #181a1b;
     --accent-bg-color: #1b1d1e;
     // Font colors
-    --main-font-color: rgb(175, 168, 157);
+    --main-font-color-dark: rgb(175, 168, 157);
+    --main-font-color-light: rgb(232, 230, 227);
     // Font styles
     --font-text-1: normal normal normal 15px/1.4em anton, sans-serif;
     --font-text-2: normal normal normal 15px/1.4em "Lucida Sans", "Lucida Sans Regular",
         "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    --font-text-3: normal normal normal 20px/1.4em "Avenir LT Std 300", sans-serif;
+    // Padding
+    --padding-inline-root-xs: 20px;
+    --padding-inline-root-sm: 60px;
+}
+
+html,
+body {
+    position: relative;
+    overflow-x: hidden;
+    width: 100vw;
+    height: 100vh;
 }
 
 body {
