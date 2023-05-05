@@ -1,13 +1,5 @@
-@use "../../scss/MediaBreakpoints.scss" as media;
-
 .home {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--secondary-bg-color);
-    padding: var(--padding-inline-root-xs);
-
-    @include media.sm {
-        padding-inline: var(--padding-inline-root-sm);
-    }
 }

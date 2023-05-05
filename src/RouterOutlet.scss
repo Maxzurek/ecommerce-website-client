@@ -1,0 +1,10 @@
+@use "./scss/MediaBreakpoints.scss" as media;
+
+.router-outlet {
+    background-color: var(--secondary-bg-color);
+    padding-inline: var(--padding-inline-root-xs);
+
+    @include media.sm {
+        padding-inline: var(--padding-inline-root-sm);
+    }
+}
