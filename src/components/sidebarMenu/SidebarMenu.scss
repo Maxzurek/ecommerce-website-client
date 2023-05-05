@@ -1,0 +1,85 @@
+@use "../../scss/MediaBreakpoints.scss" as media;
+
+.sidebar-menu {
+    --sidebar-width: 400px;
+    --sidebar-width-mobile: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    position: absolute;
+    top: 0;
+    right: calc(var(--sidebar-width-mobile) * -1);
+    width: var(--sidebar-width-mobile);
+    height: 100vh;
+    transition-property: right;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+    background-color: var(--main-bg-color);
+
+    &--open {
+        right: 0;
+    }
+
+    &__close-button {
+        width: 28px;
+        fill: white;
+        align-self: flex-end;
+        margin-top: 20px;
+        margin-right: 20px;
+        opacity: 0.7;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    &__body {
+        display: flex;
+        height: 450px;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__social-links {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 26px;
+    }
+
+    &__social-icon {
+        fill: white;
+        width: 26px;
+        height: 26px;
+    }
+
+    @include media.md {
+        right: calc(var(--sidebar-width) * -1);
+        width: var(--sidebar-width);
+
+        &--open {
+            right: 0;
+        }
+
+        &__body {
+            height: 600px;
+        }
+
+        &__social-links {
+            gap: 16px;
+        }
+
+        &__social-icon {
+            width: 18px;
+            height: 18px;
+        }
+    }
+}
