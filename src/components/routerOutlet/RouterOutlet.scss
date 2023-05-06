@@ -2,7 +2,7 @@
 
 .router-outlet {
     background-color: var(--secondary-bg-color);
-    padding-inline: var(--padding-inline-root-xs);
+    padding-inline: 0;
 
     &--visible {
         opacity: 1;
