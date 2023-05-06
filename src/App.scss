@@ -1,8 +1,11 @@
 .app {
-    &__link {
+    &__link,
+    &__link--light,
+    &__link--dark {
         display: flex;
         align-items: center;
         height: 40px;
+        padding-inline: 16px;
         color: var(--main-font-color-dark);
         font: var(--font-text-3);
         text-decoration: none;
@@ -13,6 +16,60 @@
 
         &--active {
             color: var(--main-font-color-light);
+        }
+
+        &--light {
+            color: var(--main-font-color-light);
+        }
+    }
+
+    &__link-unstyled {
+        color: unset;
+        text-decoration: none;
+    }
+
+    &__button,
+    &__button--light,
+    &__button--dark,
+    &__button--transparent {
+        font: var(--font-text-3);
+        // height: 40px;
+        padding-inline: 16px;
+        padding-block: 8px;
+        // font-size: 4vw;
+        transition: color 0.5s, background-color 0.5s;
+
+        &--light {
+            color: rgb(24, 24, 24);
+            border: 1px solid white;
+            background-color: white;
+
+            &:hover {
+                color: white;
+                background-color: rgb(24, 24, 24);
+            }
+        }
+
+        &--dark {
+            color: white;
+            border: 1px solid rgb(24, 24, 24);
+            background-color: rgb(24, 24, 24);
+
+            &:hover {
+                color: rgb(24, 24, 24);
+                background-color: white;
+            }
+        }
+
+        &--transparent {
+            color: white;
+            border: 1px solid white;
+            background-color: transparent;
+
+            &:hover {
+                color: rgb(24, 24, 24);
+                background-color: white;
+            }
         }
     }
 }
