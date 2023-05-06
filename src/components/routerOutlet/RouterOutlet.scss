@@ -4,20 +4,18 @@
     background-color: var(--secondary-bg-color);
     padding-inline: 0;
 
-    &--animate-navigation {
-        animation-name: animate-navigation;
-        animation-duration: 1.5s;
-        animation-timing-function: ease-out;
+    animation-name: animate-navigation;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
 
-        @keyframes animate-navigation {
-            from {
-                opacity: 0;
-                transform: translateY(20vh);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+    @keyframes animate-navigation {
+        from {
+            opacity: 0;
+            transform: translateY(20vh);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
     }
 

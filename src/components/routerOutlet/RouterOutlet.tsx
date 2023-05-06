@@ -1,34 +1,17 @@
-import { useLayoutEffect, useState } from "react";
 import "./RouterOutlet.scss";
 
+import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import { withClassNames } from "../../utilities/WithClassNames";
-import { usePrevious } from "../../hooks/usePrevious";
 
 const RouterOutlet = () => {
-    const [animateNavigation, setAnimateAnimation] = useState(true);
+    const { key } = useLocation();
 
-    const { pathname } = useLocation();
-    const previousPathName = usePrevious(pathname);
-
-    useLayoutEffect(() => {
-        if (pathname !== previousPathName) {
-            setAnimateAnimation(true);
-        }
-    }, [pathname, previousPathName]);
-
-    const handleAnimationEnd = () => {
-        setAnimateAnimation(false);
-    };
+    useEffect(() => {
+        document.body.scrollTo({ top: 0, behavior: "smooth" });
+    }, [key]);
 
     return (
-        <div
-            className={withClassNames([
-                "router-outlet",
-                animateNavigation && "router-outlet--animate-navigation"
-            ])}
-            onAnimationEnd={handleAnimationEnd}
-        >
+        <div key={key} className="router-outlet">
             <Outlet />
         </div>
     );
