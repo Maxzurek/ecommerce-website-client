@@ -32,6 +32,10 @@ export const router = createBrowserRouter([
             {
                 path: "/contact",
                 element: <Contact />
+            },
+            {
+                path: "/product-page/:productId",
+                element: <div>TODO</div>
             }
         ]
     }

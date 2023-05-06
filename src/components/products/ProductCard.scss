@@ -1,0 +1,36 @@
+.product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(140px + 12vw);
+
+    &__link {
+        color: unset;
+        text-decoration: none;
+    }
+
+    &__image {
+        width: 100%;
+        height: auto;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        padding: 8px;
+    }
+
+    &__title {
+        font: var(--font-text-3);
+    }
+
+    &__price {
+        font: var(--font-text-2);
+    }
+
+    &__add-to-cart-button {
+        width: 100%;
+    }
+}
