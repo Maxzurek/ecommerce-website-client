@@ -6,20 +6,20 @@
         align-items: center;
         height: 40px;
         padding-inline: 16px;
-        color: var(--main-font-color-dark);
+        color: var(--font-color-lighter);
         font: var(--font-text-3);
         text-decoration: none;
 
         &:hover {
-            color: var(--main-font-color-light);
+            color: var(--font-color-light);
         }
 
         &--active {
-            color: var(--main-font-color-light);
+            color: var(--font-color-light);
         }
 
         &--light {
-            color: var(--main-font-color-light);
+            color: var(--font-color-light);
         }
     }
 
