@@ -1,0 +1,8 @@
+.product-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    row-gap: 40px;
+    column-gap: 20px;
+}

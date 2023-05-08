@@ -22,7 +22,7 @@ const withTwoDecimalPlaces = (number: number) => {
 
 const menShirtImageSrcBasePath = "./images/products/men/";
 
-export const productList: ProductList = {
+export const products: ProductList = {
     men: {
         shirt: [
             {
@@ -139,3 +139,16 @@ export const productList: ProductList = {
         shirt: []
     }
 };
+
+export const newArrivals: Product[] = [
+    products.men.shirt[0],
+    products.men.shirt[1],
+    products.men.shirt[2],
+    products.men.shirt[3],
+    products.men.shirt[4],
+    products.men.shirt[5],
+    products.men.shirt[6],
+    products.men.shirt[7],
+    products.men.shirt[8],
+    products.men.shirt[9]
+];

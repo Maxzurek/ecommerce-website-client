@@ -1,6 +1,6 @@
 import "./ProductCard.scss";
 
-import { Product } from "../../ProductList";
+import { Product } from "../../Products";
 import { Link } from "react-router-dom";
 
 interface ProductCardProps {
@@ -23,7 +23,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
                     <span className="product-card__price">{`C$${price}`}</span>
                 </div>
             </Link>
-            <button className="app__button--light">Add to Cart</button>
+            <button className="app__button--light product-card__add-to-cart-button">
+                Add to Cart
+            </button>
         </div>
     );
 };

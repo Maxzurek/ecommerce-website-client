@@ -53,13 +53,4 @@
         text-align: center;
         padding-block: 4vh;
     }
-
-    &__product-list {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        gap: 20px;
-        padding: 40px;
-    }
 }

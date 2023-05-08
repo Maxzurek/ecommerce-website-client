@@ -1,5 +1,6 @@
-import { productList } from "../../ProductList";
-import ProductCard from "../../components/productCard/ProductCard";
+import { newArrivals } from "../../Products";
+import ProductCard from "../../components/products/ProductCard";
+import ProductList from "../../components/products/ProductList";
 import "./Home.scss";
 
 import { Link } from "react-router-dom";
@@ -32,11 +33,11 @@ const Home = () => {
                 <br />
                 {"COLLECTION"}
             </span>
-            <div className="home__product-list">
-                {productList.men.shirt.map((product) => (
+            <ProductList>
+                {newArrivals.map((product) => (
                     <ProductCard key={product.id} product={product} />
                 ))}
-            </div>
+            </ProductList>
         </div>
     );
 };
