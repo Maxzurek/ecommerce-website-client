@@ -1,0 +1,55 @@
+.button {
+    width: 100%;
+    font: var(--font-text-3);
+    padding-inline: 16px;
+    padding-block: 8px;
+    transition: color 0.5s, background-color 0.5s;
+    cursor: pointer;
+
+    &--opacity-on-hover {
+        &:hover {
+            opacity: 0.6;
+        }
+    }
+
+    &--light {
+        color: rgb(24, 24, 24);
+        border: 1px solid rgb(24, 24, 24);
+        background-color: white;
+    }
+
+    &--dark {
+        color: white;
+        border: 1px solid white;
+        background-color: rgb(24, 24, 24);
+    }
+
+    &--transparent {
+        color: white;
+        border: 1px solid white;
+        background-color: transparent;
+    }
+
+    &--light.button--inverse-on-hover {
+        &:hover {
+            color: white;
+            border: 1px solid white;
+            background-color: rgb(24, 24, 24);
+        }
+    }
+
+    &--dark.button--inverse-on-hover {
+        &:hover {
+            color: rgb(24, 24, 24);
+            border: 1px solid rgb(24, 24, 24);
+            background-color: white;
+        }
+    }
+
+    &--transparent.button--inverse-on-hover {
+        &:hover {
+            color: rgb(24, 24, 24);
+            background-color: white;
+        }
+    }
+}

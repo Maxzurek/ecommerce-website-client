@@ -8,6 +8,7 @@ import Select from "../../inputs/select/Select";
 import SelectOption from "../../inputs/select/SelectOption";
 import { assertIsNode } from "../../../utilities/Global.utils";
 import NumberInput from "../../inputs/numberInput/NumberInput";
+import Button from "../../inputs/button/Button";
 
 interface AddToCartDialogProps {
     product: Product;
@@ -127,12 +128,12 @@ const AddToCartDialog = forwardRef<BaseDialogRef, AddToCartDialogProps>(
                             onChange={handleChangeInputQuantity}
                         />
                         <div className="add-to-cart-dialog__buttons">
-                            <button className="app__button--light" onClick={handleAddToCart}>
+                            <Button inverseColorOnHover theme="light" onClick={handleAddToCart}>
                                 Add to Cart
-                            </button>
-                            <button className="app__button--light" onClick={handleBuyNow}>
+                            </Button>
+                            <Button theme="dark" onClick={handleBuyNow}>
                                 Buy Now
-                            </button>
+                            </Button>
                         </div>
                         <a
                             className="add-to-cart-dialog__details"

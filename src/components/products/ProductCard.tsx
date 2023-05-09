@@ -2,6 +2,7 @@ import "./ProductCard.scss";
 
 import { Product } from "../../interfaces/Product.interfaces";
 import { Link } from "react-router-dom";
+import Button from "../inputs/button/Button";
 
 interface ProductCardProps {
     product: Product;
@@ -28,12 +29,9 @@ const ProductCard = ({ product, onShowAddToCartDialog }: ProductCardProps) => {
                     <span className="product-card__price">{`C$${price}`}</span>
                 </div>
             </Link>
-            <button
-                className="app__button--light product-card__add-to-cart-button"
-                onClick={handleClickAddToCartButton}
-            >
+            <Button inverseColorOnHover theme="light" onClick={handleClickAddToCartButton}>
                 Add to Cart
-            </button>
+            </Button>
         </div>
     );
 };
