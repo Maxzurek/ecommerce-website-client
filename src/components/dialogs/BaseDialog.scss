@@ -1,0 +1,18 @@
+.base-dialog {
+    border: none;
+    transition: transform var(--base-dialog-animation-duration) ease-in-out;
+    transform: translateY(100vh);
+    padding: 12px;
+
+    &::backdrop {
+        background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    &--opened {
+        transform: translateY(0);
+    }
+
+    &--closed {
+        transform: translateY(100vh);
+    }
+}

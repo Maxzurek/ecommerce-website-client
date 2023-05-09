@@ -1,0 +1,19 @@
+@use "../../../scss/MediaBreakpoints.scss" as media;
+
+.select-option {
+    display: flex;
+    align-items: center;
+    height: 32px;
+    padding: 8px;
+    font: var(--font-text-2);
+    color: white;
+
+    @include media.xl {
+        height: auto;
+    }
+
+    &:hover {
+        background-color: white;
+        color: var(--font-color-dark);
+    }
+}

@@ -1,20 +1,5 @@
+import { ProductList, Product } from "./interfaces/Product.interfaces";
 import { generateRandomId } from "./utilities/Math.utils";
-
-export interface Product {
-    id: string;
-    imageSrc: string;
-    title: string;
-    price: string;
-}
-
-interface ProductList {
-    men: {
-        shirt: Product[];
-    };
-    women: {
-        shirt: Product[];
-    };
-}
 
 const withTwoDecimalPlaces = (number: number) => {
     return Number(number).toFixed(2);

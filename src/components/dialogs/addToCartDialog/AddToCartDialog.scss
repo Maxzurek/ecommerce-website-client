@@ -1,0 +1,94 @@
+@use "../../../scss/MediaBreakpoints.scss" as media;
+
+.add-to-cart-dialog {
+    width: 100%;
+    height: 80%;
+
+    @include media.lg {
+        width: 60%;
+        height: 55%;
+    }
+
+    @include media.xl {
+        width: 50%;
+        height: 50%;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: right;
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        gap: 12px;
+        background-color: inherit;
+
+        @include media.lg {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    &__inputs {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        background-color: inherit;
+    }
+
+    &__image {
+        width: 70%;
+        align-self: center;
+        padding-bottom: 8px;
+
+        @include media.lg {
+            width: 100%;
+            max-width: 360px;
+        }
+    }
+
+    &__title {
+        font: var(--font-text-3);
+    }
+
+    &__price {
+        font: var(--font-text-2);
+    }
+
+    &__buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        @include media.xl {
+            margin-top: auto;
+        }
+    }
+
+    &__details {
+        font: var(--font-text-2);
+        color: white;
+        text-decoration: underline;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    &__close-button {
+        width: 20px;
+        padding: 8px;
+        border: none;
+        border-radius: 50%;
+        fill: var(--font-color-light);
+        cursor: pointer;
+
+        &:hover {
+            fill: white;
+        }
+    }
+}

@@ -1,14 +1,19 @@
 import "./ProductCard.scss";
 
-import { Product } from "../../Products";
+import { Product } from "../../interfaces/Product.interfaces";
 import { Link } from "react-router-dom";
 
 interface ProductCardProps {
     product: Product;
+    onShowAddToCartDialog: (product: Product) => void;
 }
 
-const ProductCard = ({ product }: ProductCardProps) => {
+const ProductCard = ({ product, onShowAddToCartDialog }: ProductCardProps) => {
     const { id, imageSrc, title, price } = product;
+
+    const handleClickAddToCartButton = () => {
+        onShowAddToCartDialog(product);
+    };
 
     return (
         <div className="product-card">
@@ -23,7 +28,10 @@ const ProductCard = ({ product }: ProductCardProps) => {
                     <span className="product-card__price">{`C$${price}`}</span>
                 </div>
             </Link>
-            <button className="app__button--light product-card__add-to-cart-button">
+            <button
+                className="app__button--light product-card__add-to-cart-button"
+                onClick={handleClickAddToCartButton}
+            >
                 Add to Cart
             </button>
         </div>

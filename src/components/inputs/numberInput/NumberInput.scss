@@ -1,0 +1,45 @@
+@use "../../../scss/MediaBreakpoints.scss" as media;
+
+.number-input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 80px;
+    height: 36px;
+    padding: 8px;
+    border: 1px solid white;
+
+    @include media.xl {
+        height: 32px;
+    }
+
+    ::-webkit-inner-spin-button {
+        appearance: none;
+        -webkit-appearance: none;
+    }
+
+    &__label {
+        font: var(--font-text-2);
+    }
+
+    input {
+        width: 100%;
+        font: var(--font-text-2);
+        background-color: transparent;
+        outline: none;
+        border: none;
+    }
+
+    &__spinner-arrow-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        gap: 4px;
+    }
+
+    &__spinner-arrow {
+        width: 16px;
+        fill: white;
+    }
+}

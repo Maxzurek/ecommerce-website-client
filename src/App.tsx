@@ -2,6 +2,9 @@ import "./App.scss";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import ScrollToTopButton from "./components/scrollTopButton/ScrollToTopButton";
+import AddToCartDialog from "./components/dialogs/addToCartDialog/AddToCartDialog";
+import { Product } from "./interfaces/Product.interfaces";
+import { useRef, useState } from "react";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import RouterOutlet from "./components/routerOutlet/RouterOutlet";
@@ -9,8 +12,22 @@ import AboutUs from "./routes/aboutUs/AboutUs";
 import Contact from "./routes/contact/Contact";
 import Home from "./routes/home/Home";
 import Shop from "./routes/shop/Shop";
+import { BaseDialogRef } from "./components/dialogs/BaseDialog";
 
 const App = () => {
+    const [addToCartProduct, setAddToCartProduct] = useState<Product>();
+
+    const addToCartDialogRef = useRef<BaseDialogRef>();
+
+    const handleShowAddToCartDialog = (product: Product) => {
+        setAddToCartProduct(product);
+        addToCartDialogRef.current.open();
+    };
+
+    const handleCloseAddToCartDialog = () => {
+        addToCartDialogRef.current.close();
+    };
+
     const router = createBrowserRouter([
         {
             element: (
@@ -23,7 +40,7 @@ const App = () => {
             children: [
                 {
                     path: "/",
-                    element: <Home />
+                    element: <Home onShowAddToCartDialog={handleShowAddToCartDialog} />
                 },
                 {
                     path: "/shop",
@@ -49,6 +66,11 @@ const App = () => {
         <div className="app">
             <RouterProvider router={router} />
             <ScrollToTopButton />
+            <AddToCartDialog
+                ref={addToCartDialogRef}
+                product={addToCartProduct}
+                onClose={handleCloseAddToCartDialog}
+            />
         </div>
     );
 };

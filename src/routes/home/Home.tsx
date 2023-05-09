@@ -1,11 +1,17 @@
+import "./Home.scss";
+
 import { newArrivals } from "../../Products";
 import ProductCard from "../../components/products/ProductCard";
 import ProductList from "../../components/products/ProductList";
-import "./Home.scss";
+import { Product } from "../../interfaces/Product.interfaces";
 
 import { Link } from "react-router-dom";
 
-const Home = () => {
+interface HomeProps {
+    onShowAddToCartDialog: (product: Product) => void;
+}
+
+const Home = ({ onShowAddToCartDialog }: HomeProps) => {
     return (
         <div className="home">
             <div className="home__banner-image">
@@ -35,7 +41,11 @@ const Home = () => {
             </span>
             <ProductList>
                 {newArrivals.map((product) => (
-                    <ProductCard key={product.id} product={product} />
+                    <ProductCard
+                        key={product.id}
+                        product={product}
+                        onShowAddToCartDialog={onShowAddToCartDialog}
+                    />
                 ))}
             </ProductList>
         </div>
