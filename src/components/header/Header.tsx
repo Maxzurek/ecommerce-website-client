@@ -49,7 +49,11 @@ const Header = () => {
             <div className="header__columns">
                 <div className="header__column">
                     <Link to={"/"} onClick={handleClickLogo}>
-                        <img src="./logo-light-transparent.png" className="header__logo" />
+                        <img
+                            alt="Logo"
+                            className="header__logo"
+                            src="/logo-light-transparent.png"
+                        />
                     </Link>
                 </div>
                 <div className="header__column">
