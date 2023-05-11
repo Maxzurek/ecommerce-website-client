@@ -1,5 +1,4 @@
 import { ProductList, Product } from "./interfaces/Product.interfaces";
-import { generateRandomId } from "./utilities/Math.utils";
 
 const withTwoDecimalPlaces = (number: number) => {
     return Number(number).toFixed(2);
@@ -11,109 +10,109 @@ export const products: ProductList = {
     men: {
         shirt: [
             {
-                id: generateRandomId(),
+                id: "shirt-men-1",
                 imageSrc: menShirtImageSrcBasePath + "men-shirt-1.jpg",
                 title: "Men shirt",
                 price: withTwoDecimalPlaces(30)
             },
             {
-                id: generateRandomId(),
+                id: "shirt-men-2",
                 imageSrc: menShirtImageSrcBasePath + "men-shirt-2.jpg",
                 title: "Men shirt",
                 price: withTwoDecimalPlaces(25)
             },
             {
-                id: generateRandomId(),
+                id: "shirt-men-3",
                 imageSrc: menShirtImageSrcBasePath + "men-shirt-3.jpg",
                 title: "Men shirt",
                 price: withTwoDecimalPlaces(28)
             },
             {
-                id: generateRandomId(),
+                id: "shirt-men-4",
                 imageSrc: menShirtImageSrcBasePath + "men-shirt-4.jpg",
                 title: "Men shirt",
                 price: withTwoDecimalPlaces(35)
             },
             {
-                id: generateRandomId(),
+                id: "shirt-men-5",
                 imageSrc: menShirtImageSrcBasePath + "men-shirt-5.jpg",
                 title: "Men shirt",
                 price: withTwoDecimalPlaces(35)
             },
             {
-                id: generateRandomId(),
+                id: "shirt-men-6",
                 imageSrc: menShirtImageSrcBasePath + "men-shirt-6.jpg",
                 title: "Men shirt",
                 price: withTwoDecimalPlaces(30)
             },
             {
-                id: generateRandomId(),
+                id: "shirt-men-7",
                 imageSrc: menShirtImageSrcBasePath + "men-shirt-7.jpg",
                 title: "Men shirt",
                 price: withTwoDecimalPlaces(20)
             },
             {
-                id: generateRandomId(),
+                id: "shirt-men-8",
                 imageSrc: menShirtImageSrcBasePath + "men-shirt-8.jpg",
                 title: "Men shirt",
                 price: withTwoDecimalPlaces(25)
             },
             {
-                id: generateRandomId(),
+                id: "shirt-men-9",
                 imageSrc: menShirtImageSrcBasePath + "men-shirt-9.jpg",
                 title: "Men shirt",
                 price: withTwoDecimalPlaces(30)
             },
             {
-                id: generateRandomId(),
+                id: "shirt-men-10",
                 imageSrc: menShirtImageSrcBasePath + "men-shirt-10.jpg",
                 title: "Men shirt",
                 price: withTwoDecimalPlaces(35)
             },
             {
-                id: generateRandomId(),
+                id: "shirt-men-11",
                 imageSrc: menShirtImageSrcBasePath + "men-shirt-11.jpg",
                 title: "Men shirt",
                 price: withTwoDecimalPlaces(30)
             },
             {
-                id: generateRandomId(),
+                id: "shirt-men-12",
                 imageSrc: menShirtImageSrcBasePath + "men-shirt-12.jpg",
                 title: "Men shirt",
                 price: withTwoDecimalPlaces(30)
             },
             {
-                id: generateRandomId(),
+                id: "shirt-men-13",
                 imageSrc: menShirtImageSrcBasePath + "men-shirt-13.jpg",
                 title: "Men shirt",
                 price: withTwoDecimalPlaces(20)
             },
             {
-                id: generateRandomId(),
+                id: "shirt-men-14",
                 imageSrc: menShirtImageSrcBasePath + "men-shirt-14.jpg",
                 title: "Men shirt",
                 price: withTwoDecimalPlaces(30)
             },
             {
-                id: generateRandomId(),
+                id: "shirt-men-15",
                 imageSrc: menShirtImageSrcBasePath + "men-shirt-15.jpg",
                 title: "Men shirt",
                 price: withTwoDecimalPlaces(30)
             },
             {
-                id: generateRandomId(),
+                id: "shirt-men-16",
                 imageSrc: menShirtImageSrcBasePath + "men-shirt-16.jpg",
                 title: "Men shirt",
                 price: withTwoDecimalPlaces(25)
             },
             {
-                id: generateRandomId(),
+                id: "shirt-men-17",
                 imageSrc: menShirtImageSrcBasePath + "men-shirt-17.jpg",
                 title: "Men shirt",
                 price: withTwoDecimalPlaces(30)
             },
             {
-                id: generateRandomId(),
+                id: "shirt-men-18",
                 imageSrc: menShirtImageSrcBasePath + "men-shirt-18.jpg",
                 title: "Men shirt",
                 price: withTwoDecimalPlaces(35)
