@@ -5,7 +5,7 @@ const withTwoDecimalPlaces = (number: number) => {
     return Number(number).toFixed(2);
 };
 
-const menShirtImageSrcBasePath = "./images/products/men/";
+const menShirtImageSrcBasePath = "/images/products/men/";
 
 export const products: ProductList = {
     men: {
