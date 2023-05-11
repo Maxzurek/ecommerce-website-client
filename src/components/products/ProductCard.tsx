@@ -21,7 +21,7 @@ const ProductCard = ({ product, onShowAddToCartDialog }: ProductCardProps) => {
             <Link
                 className="app__link-unstyled"
                 state={{ productId: id }}
-                to={`/product-page/:${id}`}
+                to={`/product-page/${id}`}
             >
                 <img alt="Product" className="product-card__image" src={imageSrc} />
                 <div className="product-card__info">
