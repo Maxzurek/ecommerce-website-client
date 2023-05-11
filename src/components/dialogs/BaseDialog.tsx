@@ -2,6 +2,7 @@ import "./BaseDialog.scss";
 
 import { withClassNames } from "../../utilities/WithClassNames";
 import { forwardRef, ReactNode, useImperativeHandle, useRef, useState } from "react";
+import Close from "../../assets/Close.icon";
 
 export interface BaseDialogRef {
     isOpen: boolean;
@@ -83,6 +84,9 @@ const BaseDialog = forwardRef<BaseDialogRef, BaseDialogProps>(
                 onClick={handleClickDialog}
                 onTransitionEnd={handleTransitionEnd}
             >
+                <div className="base-dialog__header">
+                    <Close className="base-dialog__close-button" onClick={handleClose} />
+                </div>
                 {children}
             </dialog>
         );

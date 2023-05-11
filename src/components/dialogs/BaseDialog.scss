@@ -15,4 +15,23 @@
     &--closed {
         transform: translateY(100vh);
     }
+
+    &__header {
+        display: flex;
+        justify-content: right;
+        margin-bottom: 8px;
+    }
+
+    &__close-button {
+        width: 20px;
+        padding: 8px;
+        border: none;
+        border-radius: 50%;
+        fill: var(--font-color-light);
+        cursor: pointer;
+
+        &:hover {
+            fill: white;
+        }
+    }
 }

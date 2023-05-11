@@ -3,7 +3,6 @@ import "./AddToCartDialog.scss";
 import BaseDialog, { BaseDialogRef } from "../BaseDialog";
 import { Product, ProductSize } from "../../../interfaces/Product.interfaces";
 import { forwardRef, useRef, useState } from "react";
-import Close from "../../../assets/Close.icon";
 import Select from "../../inputs/select/Select";
 import SelectOption from "../../inputs/select/SelectOption";
 import { assertIsNode } from "../../../utilities/Global.utils";
@@ -75,12 +74,6 @@ const AddToCartDialog = forwardRef<BaseDialogRef, AddToCartDialogProps>(
                 onBackdropClick={handleCloseDialog}
                 onClick={handleClickDialog}
             >
-                <div className="add-to-cart-dialog__header">
-                    <Close
-                        className="add-to-cart-dialog__close-button"
-                        onClick={handleCloseDialog}
-                    />
-                </div>
                 <div className="add-to-cart-dialog__body">
                     <img
                         alt="Product"
@@ -137,7 +130,7 @@ const AddToCartDialog = forwardRef<BaseDialogRef, AddToCartDialogProps>(
                         </div>
                         <a
                             className="add-to-cart-dialog__details"
-                            href={`/product-page/:${product?.id}`}
+                            href={`/product-page/${product?.id}`}
                         >
                             View More Details
                         </a>
