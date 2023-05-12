@@ -6,10 +6,11 @@ import Button from "../inputs/button/Button";
 
 interface ProductCardProps {
     product: Product;
+    isNew?: boolean;
     onShowAddToCartDialog: (product: Product) => void;
 }
 
-const ProductCard = ({ product, onShowAddToCartDialog }: ProductCardProps) => {
+const ProductCard = ({ product, isNew, onShowAddToCartDialog }: ProductCardProps) => {
     const prevLocation = useLocation();
 
     const { id, imageSrc, title, price } = product;
@@ -25,6 +26,7 @@ const ProductCard = ({ product, onShowAddToCartDialog }: ProductCardProps) => {
                 state={{ productId: id, prevLocation }}
                 to={`/product-page/${id}`}
             >
+                {isNew && <div className="product-card__new-ribbon">New</div>}
                 <img alt="Product" className="product-card__image" src={imageSrc} />
                 <div className="product-card__info">
                     <span className="product-card__title">{title}</span>

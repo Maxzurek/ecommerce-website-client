@@ -2,11 +2,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
     width: calc(140px + 12vw);
 
     &__link {
         color: unset;
         text-decoration: none;
+    }
+
+    &__new-ribbon {
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding: 2px 12px;
+        background-color: var(--main-bg-color);
+        font: var(--font-text-2);
+        border: 1px solid white;
     }
 
     &__image {
