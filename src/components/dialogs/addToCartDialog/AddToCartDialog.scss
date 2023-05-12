@@ -37,9 +37,11 @@
     &__image {
         width: 70%;
         padding-bottom: 8px;
+        align-self: center;
 
         @include media.lg {
             width: 344px;
+            align-self: unset;
         }
     }
 
