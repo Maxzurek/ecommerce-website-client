@@ -1,6 +1,6 @@
 import "./Home.scss";
 
-import { newArrivals } from "../../Products";
+import { limitedEditionProducts } from "../../Products";
 import ProductCard from "../../components/products/ProductCard";
 import ProductList from "../../components/products/ProductList";
 import { Product } from "../../interfaces/Product.interfaces";
@@ -39,7 +39,7 @@ const Home = ({ onShowAddToCartDialog }: HomeProps) => {
             </div>
             <span className="home__header">LIMITED EDITION COLLECTION</span>
             <ProductList>
-                {newArrivals.map((product) => (
+                {limitedEditionProducts.map((product) => (
                     <ProductCard
                         key={product.id}
                         product={product}

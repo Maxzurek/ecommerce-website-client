@@ -124,7 +124,7 @@ export const products: ProductList = {
     }
 };
 
-export const newArrivals: Product[] = [
+export const limitedEditionProducts: Product[] = [
     products.men.shirt[0],
     products.men.shirt[1],
     products.men.shirt[2],
