@@ -3,6 +3,7 @@ export interface Product {
     imageSrc: string;
     title: string;
     price: string;
+    isNew?: boolean;
 }
 
 export interface ProductList {

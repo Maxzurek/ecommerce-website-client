@@ -97,25 +97,29 @@ export const products: ProductList = {
                 id: "shirt-men-15",
                 imageSrc: menShirtImageSrcBasePath + "men-shirt-15.jpg",
                 title: "Men shirt",
-                price: withTwoDecimalPlaces(30)
+                price: withTwoDecimalPlaces(30),
+                isNew: true
             },
             {
                 id: "shirt-men-16",
                 imageSrc: menShirtImageSrcBasePath + "men-shirt-16.jpg",
                 title: "Men shirt",
-                price: withTwoDecimalPlaces(25)
+                price: withTwoDecimalPlaces(25),
+                isNew: true
             },
             {
                 id: "shirt-men-17",
                 imageSrc: menShirtImageSrcBasePath + "men-shirt-17.jpg",
                 title: "Men shirt",
-                price: withTwoDecimalPlaces(30)
+                price: withTwoDecimalPlaces(30),
+                isNew: true
             },
             {
                 id: "shirt-men-18",
                 imageSrc: menShirtImageSrcBasePath + "men-shirt-18.jpg",
                 title: "Men shirt",
-                price: withTwoDecimalPlaces(35)
+                price: withTwoDecimalPlaces(35),
+                isNew: true
             }
         ]
     },
