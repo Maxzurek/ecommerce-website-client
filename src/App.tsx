@@ -14,6 +14,7 @@ import Home from "./routes/home/Home";
 import Shop from "./routes/shop/Shop";
 import { BaseDialogRef } from "./components/dialogs/BaseDialog";
 import ProductPage from "./routes/productPage/ProductPage";
+import Faq from "./routes/faq/Faq";
 
 const App = () => {
     const [addToCartProduct, setAddToCartProduct] = useState<Product>();
@@ -63,6 +64,10 @@ const App = () => {
                 {
                     path: "/product-page/:productId",
                     element: <ProductPage />
+                },
+                {
+                    path: "/faq",
+                    element: <Faq />
                 }
             ]
         }

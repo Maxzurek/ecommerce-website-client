@@ -1,0 +1,27 @@
+@use "../../scss/MediaBreakpoints.scss" as media;
+
+.faq {
+    display: flex;
+    flex-direction: column;
+    padding: 10%;
+
+    @include media.xl {
+        padding-inline: 20%;
+    }
+
+    &__header {
+        font: var(--font-text-1);
+        letter-spacing: 4px;
+        align-self: center;
+        text-align: center;
+        padding-bottom: 4vh;
+    }
+
+    .expandable-div-with-label__label {
+        font-size: 16px;
+
+        @include media.xl {
+            font-size: 20px;
+        }
+    }
+}
