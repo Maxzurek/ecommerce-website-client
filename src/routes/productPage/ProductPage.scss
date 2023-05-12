@@ -39,6 +39,7 @@
         width: 70%;
         align-self: center;
         padding-bottom: 8px;
+        cursor: pointer;
 
         @include media.lg {
             width: 60%;
