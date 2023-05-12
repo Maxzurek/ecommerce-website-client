@@ -9,7 +9,6 @@ import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import RouterOutlet from "./components/routerOutlet/RouterOutlet";
 import AboutUs from "./routes/aboutUs/AboutUs";
-import Contact from "./routes/contact/Contact";
 import Home from "./routes/home/Home";
 import Shop from "./routes/shop/Shop";
 import { BaseDialogRef } from "./components/dialogs/BaseDialog";
@@ -56,10 +55,6 @@ const App = () => {
                 {
                     path: "/about-us",
                     element: <AboutUs />
-                },
-                {
-                    path: "/contact",
-                    element: <Contact />
                 },
                 {
                     path: "/product-page/:productId",

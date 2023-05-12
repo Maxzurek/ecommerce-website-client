@@ -65,15 +65,6 @@ const SidebarMenu = ({ isOpen, onClose }: SidebarMenuProps) => {
                     >
                         FAQ
                     </Link>
-                    <Link
-                        className={withClassNames([
-                            "app__link",
-                            useMatch("/contact") && "app__link--active"
-                        ])}
-                        to="contact"
-                    >
-                        Contact
-                    </Link>
                 </div>
                 <div className="sidebar-menu__social-links">
                     <Link rel="noreferrer" target="_blank" to="https://facebook.com">
