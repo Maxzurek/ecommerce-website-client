@@ -25,66 +25,69 @@ const SidebarMenu = ({ isOpen, onClose }: SidebarMenuProps) => {
     }
 
     return (
-        <div className={withClassNames(["sidebar-menu", isOpen && "sidebar-menu--open"])}>
-            <CloseThin className="sidebar-menu__close-button" onClick={onClose} />
-            <div className="sidebar-menu__body">
-                <div className="sidebar-menu__nav-links">
-                    <Link
-                        className={withClassNames([
-                            "app__link",
-                            useMatch("/") && "app__link--active"
-                        ])}
-                        to="/"
-                    >
-                        Home
-                    </Link>
-                    <Link
-                        className={withClassNames([
-                            "app__link",
-                            useMatch("/shop") && "app__link--active"
-                        ])}
-                        to="shop"
-                    >
-                        Shop
-                    </Link>
-                    <Link
-                        className={withClassNames([
-                            "app__link",
-                            useMatch("/about-us") && "app__link--active"
-                        ])}
-                        to="about-us"
-                    >
-                        About Us
-                    </Link>
-                    <Link
-                        className={withClassNames([
-                            "app__link",
-                            useMatch("/faq") && "app__link--active"
-                        ])}
-                        to="faq"
-                    >
-                        FAQ
-                    </Link>
-                </div>
-                <div className="sidebar-menu__social-links">
-                    <Link rel="noreferrer" target="_blank" to="https://facebook.com">
-                        <Facebook className="sidebar-menu__social-icon" />
-                    </Link>
-                    <Link rel="noreferrer" target="_blank" to="https://twitter.com">
-                        <Twitter className="sidebar-menu__social-icon" />
-                    </Link>
-                    <Link rel="noreferrer" target="_blank" to="https://youtube.com">
-                        <Youtube className="sidebar-menu__social-icon" />
-                    </Link>
-                    <Link rel="noreferrer" target="_blank" to="https://pinterest.com">
-                        <Pinterest className="sidebar-menu__social-icon" />
-                    </Link>
-                    <Link rel="noreferrer" target="_blank" to="https://instagram.com">
-                        <Instagram className="sidebar-menu__social-icon" />
-                    </Link>
+        <>
+            {isOpen && <div className="sidebar-menu__click-outside-area" onClick={onClose} />}
+            <div className={withClassNames(["sidebar-menu", isOpen && "sidebar-menu--open"])}>
+                <CloseThin className="sidebar-menu__close-button" onClick={onClose} />
+                <div className="sidebar-menu__body">
+                    <div className="sidebar-menu__nav-links">
+                        <Link
+                            className={withClassNames([
+                                "app__link",
+                                useMatch("/") && "app__link--active"
+                            ])}
+                            to="/"
+                        >
+                            Home
+                        </Link>
+                        <Link
+                            className={withClassNames([
+                                "app__link",
+                                useMatch("/shop") && "app__link--active"
+                            ])}
+                            to="shop"
+                        >
+                            Shop
+                        </Link>
+                        <Link
+                            className={withClassNames([
+                                "app__link",
+                                useMatch("/about-us") && "app__link--active"
+                            ])}
+                            to="about-us"
+                        >
+                            About Us
+                        </Link>
+                        <Link
+                            className={withClassNames([
+                                "app__link",
+                                useMatch("/faq") && "app__link--active"
+                            ])}
+                            to="faq"
+                        >
+                            FAQ
+                        </Link>
+                    </div>
+                    <div className="sidebar-menu__social-links">
+                        <Link rel="noreferrer" target="_blank" to="https://facebook.com">
+                            <Facebook className="sidebar-menu__social-icon" />
+                        </Link>
+                        <Link rel="noreferrer" target="_blank" to="https://twitter.com">
+                            <Twitter className="sidebar-menu__social-icon" />
+                        </Link>
+                        <Link rel="noreferrer" target="_blank" to="https://youtube.com">
+                            <Youtube className="sidebar-menu__social-icon" />
+                        </Link>
+                        <Link rel="noreferrer" target="_blank" to="https://pinterest.com">
+                            <Pinterest className="sidebar-menu__social-icon" />
+                        </Link>
+                        <Link rel="noreferrer" target="_blank" to="https://instagram.com">
+                            <Instagram className="sidebar-menu__social-icon" />
+                        </Link>
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 

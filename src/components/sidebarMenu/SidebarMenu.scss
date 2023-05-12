@@ -21,6 +21,15 @@
         right: 0;
     }
 
+    &__click-outside-area {
+        position: absolute;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: black;
+        opacity: 0.6;
+    }
+
     &__close-button {
         width: 28px;
         fill: white;
