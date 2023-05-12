@@ -49,9 +49,13 @@
 
     &__header {
         font: var(--font-text-1);
-        font-size: 4vw;
         letter-spacing: 4px;
         text-align: center;
         padding-block: 4vh;
+    }
+
+    &__button-shop-all {
+        width: unset;
+        margin-block: 60px;
     }
 }

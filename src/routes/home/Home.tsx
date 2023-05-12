@@ -37,11 +37,7 @@ const Home = ({ onShowAddToCartDialog }: HomeProps) => {
                     </Link>
                 </Button>
             </div>
-            <span className="home__header">
-                {"LIMITED EDITION"}
-                <br />
-                {"COLLECTION"}
-            </span>
+            <span className="home__header">LIMITED EDITION COLLECTION</span>
             <ProductList>
                 {newArrivals.map((product) => (
                     <ProductCard
@@ -51,6 +47,11 @@ const Home = ({ onShowAddToCartDialog }: HomeProps) => {
                     />
                 ))}
             </ProductList>
+            <Button className="home__button-shop-all" inverseColorOnHover theme="dark">
+                <Link className="app__link-unstyled" to="shop">
+                    Shop All
+                </Link>
+            </Button>
         </div>
     );
 };
