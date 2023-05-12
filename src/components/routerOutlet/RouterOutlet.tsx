@@ -7,7 +7,7 @@ const RouterOutlet = () => {
     const { key } = useLocation();
 
     useEffect(() => {
-        document.body.scrollTo({ top: 0, behavior: "smooth" });
+        document.body.scrollTo({ top: 0 });
     }, [key]);
 
     return (
