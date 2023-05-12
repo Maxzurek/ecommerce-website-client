@@ -13,6 +13,7 @@ import Contact from "./routes/contact/Contact";
 import Home from "./routes/home/Home";
 import Shop from "./routes/shop/Shop";
 import { BaseDialogRef } from "./components/dialogs/BaseDialog";
+import ProductPage from "./routes/productPage/ProductPage";
 
 const App = () => {
     const [addToCartProduct, setAddToCartProduct] = useState<Product>();
@@ -56,7 +57,7 @@ const App = () => {
                 },
                 {
                     path: "/product-page/:productId",
-                    element: <div>TODO</div>
+                    element: <ProductPage />
                 }
             ]
         }

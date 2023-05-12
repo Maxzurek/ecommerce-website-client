@@ -1,0 +1,105 @@
+.expandable-div {
+    overflow: hidden;
+
+    &--expanded,
+    &--collapsed {
+        &-vertically,
+        &-horizontally,
+        &-diagonally {
+            animation-duration: var(--animation-duration);
+            animation-timing-function: var(--animation-timing-function);
+            animation-fill-mode: forwards;
+            transition-property: height, width;
+            transition-duration: var(--animation-duration);
+            transition-timing-function: var(--animation-timing-function);
+        }
+    }
+
+    &--expanded {
+        &-vertically {
+            animation-name: expand;
+            height: var(--expandable-div-height);
+
+            &-untouched {
+                height: var(--expandable-div-height);
+            }
+        }
+        &-horizontally {
+            animation-name: expand-horizontally;
+            width: 100%;
+            height: var(--expandable-div-height);
+
+            &-untouched {
+                width: var(--expandable-div-width);
+                height: 100%;
+            }
+        }
+        &-diagonally {
+            animation-name: expand;
+            width: var(--expandable-div-width);
+            height: var(--expandable-div-height);
+
+            &-untouched {
+                width: var(--expandable-div-width);
+                height: var(--expandable-div-height);
+            }
+        }
+    }
+
+    &--collapsed {
+        &-vertically {
+            animation-name: collapse;
+            height: 0px !important;
+
+            &-untouched {
+                height: 0px !important;
+            }
+        }
+        &-horizontally {
+            animation-name: collapse;
+            width: 0px !important;
+            height: var(--expandable-div-height) !important;
+
+            &-untouched {
+                width: 0px !important;
+            }
+        }
+        &-diagonally {
+            animation-name: collapse;
+            width: 0px !important;
+            height: 0px !important;
+
+            &-untouched {
+                width: 0px !important;
+                height: 0px !important;
+            }
+        }
+    }
+
+    @keyframes collapse {
+        99% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    @keyframes expand {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    @keyframes expand-horizontally {
+        0% {
+            height: var(--expandable-div-height);
+            opacity: 1;
+        }
+        100% {
+            height: auto;
+            opacity: 1;
+        }
+    }
+}

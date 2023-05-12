@@ -1,0 +1,30 @@
+.expandable-div-with-label {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 0;
+
+    border-bottom: 1px solid white;
+
+    &__label {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font: var(--font-text-1);
+        user-select: none;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.7;
+        }
+
+        svg {
+            fill: white;
+            width: 16px;
+        }
+    }
+
+    &__container {
+        font: var(--font-text-2);
+    }
+}

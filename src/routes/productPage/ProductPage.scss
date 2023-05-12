@@ -1,0 +1,79 @@
+@use "../../scss/MediaBreakpoints.scss" as media;
+
+.product-page {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px;
+    gap: 16px;
+    background-color: inherit;
+
+    @include media.lg {
+        display: grid;
+        grid-template-columns: 1fr 0.6fr;
+        row-gap: 36px;
+        padding: 20px 20%;
+    }
+
+    &__back-to-previous-location {
+        display: flex;
+        width: 100%;
+        gap: 16px;
+        padding-bottom: 16px;
+
+        font: var(--font-text-2);
+
+        svg {
+            width: 8px;
+            fill: white;
+        }
+    }
+
+    &__inputs {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        background-color: inherit;
+    }
+
+    &__image {
+        width: 70%;
+        align-self: center;
+        padding-bottom: 8px;
+
+        @include media.lg {
+            width: 60%;
+            justify-self: center;
+        }
+    }
+
+    &__title {
+        font: var(--font-text-3);
+        font-size: 26px;
+    }
+
+    &__price {
+        font: var(--font-text-2);
+        font-size: 18px;
+    }
+
+    &__buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        @include media.xl {
+            margin-top: auto;
+        }
+    }
+
+    &__description {
+        font: var(--font-text-2);
+        margin: 16px 0;
+    }
+
+    &__dialog {
+        width: 80%;
+        height: 80%;
+        outline: none;
+    }
+}
