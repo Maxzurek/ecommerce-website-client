@@ -21,7 +21,7 @@ const ExpandableDivWithLabel = ({
     const divRef = useRef<HTMLDivElement>();
     const test = useRef<HTMLDivElement>();
 
-    const handleAnimationEnd = () => {
+    const handleTransitionEnd = () => {
         if (isExpanded) {
             divRef.current.scrollIntoView({
                 behavior: "smooth",
@@ -40,7 +40,7 @@ const ExpandableDivWithLabel = ({
                 ref={test}
                 className="expandable-div-with-label__container"
                 isExpanded={isExpanded}
-                onAnimationEnd={handleAnimationEnd}
+                onTransitionEnd={handleTransitionEnd}
             >
                 {children}
             </ExpandableDiv>
