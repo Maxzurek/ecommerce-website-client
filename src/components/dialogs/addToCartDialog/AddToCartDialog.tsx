@@ -8,6 +8,7 @@ import SelectOption from "../../inputs/select/SelectOption";
 import { assertIsNode } from "../../../utilities/Global.utils";
 import NumberInput from "../../inputs/numberInput/NumberInput";
 import Button from "../../inputs/button/Button";
+import { Link, useLocation } from "react-router-dom";
 
 interface AddToCartDialogProps {
     product: Product;
@@ -20,6 +21,8 @@ const AddToCartDialog = forwardRef<BaseDialogRef, AddToCartDialogProps>(
         const [productSize, setProductSize] = useState<ProductSize>();
         const [productQuantity, setProductQuantity] = useState(1);
         const [isErrorSelectSize, setIsErrorSelectSize] = useState(false);
+
+        const prevLocation = useLocation();
 
         const selectRef = useRef<HTMLDivElement>();
 
@@ -65,6 +68,10 @@ const AddToCartDialog = forwardRef<BaseDialogRef, AddToCartDialogProps>(
 
         const handleBuyNow = () => {
             // TODO
+        };
+
+        const handleClickDetails = () => {
+            onClose();
         };
 
         return (
@@ -128,12 +135,14 @@ const AddToCartDialog = forwardRef<BaseDialogRef, AddToCartDialogProps>(
                                 Buy Now
                             </Button>
                         </div>
-                        <a
+                        <Link
                             className="add-to-cart-dialog__details"
-                            href={`/product-page/${product?.id}`}
+                            state={{ prevLocation }}
+                            to={`/product-page/${product?.id}`}
+                            onClick={handleClickDetails}
                         >
                             View More Details
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </BaseDialog>

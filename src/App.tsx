@@ -36,6 +36,11 @@ const App = () => {
                     <Header />
                     <RouterOutlet />
                     <Footer />
+                    <AddToCartDialog
+                        ref={addToCartDialogRef}
+                        product={addToCartProduct}
+                        onClose={handleCloseAddToCartDialog}
+                    />
                 </>
             ),
             children: [
@@ -45,7 +50,7 @@ const App = () => {
                 },
                 {
                     path: "/shop",
-                    element: <Shop />
+                    element: <Shop onShowAddToCartDialog={handleShowAddToCartDialog} />
                 },
                 {
                     path: "/about-us",
@@ -67,11 +72,6 @@ const App = () => {
         <div className="app">
             <RouterProvider router={router} />
             <ScrollToTopButton />
-            <AddToCartDialog
-                ref={addToCartDialogRef}
-                product={addToCartProduct}
-                onClose={handleCloseAddToCartDialog}
-            />
         </div>
     );
 };
