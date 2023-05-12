@@ -1,0 +1,41 @@
+@use "../../scss/MediaBreakpoints.scss" as media;
+
+.about-us {
+    display: flex;
+    flex-direction: column;
+    padding-block: 60px;
+
+    @include media.xl {
+        flex-direction: row;
+    }
+
+    &__header {
+        margin-bottom: 20px;
+        font: var(--font-text-1);
+    }
+
+    &__section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--main-bg-color);
+        padding: 60px;
+
+        @include media.xl {
+            justify-content: center;
+        }
+
+        p {
+            font: var(--font-text-3);
+            text-align: center;
+        }
+    }
+
+    &__banner-image {
+        width: 100%;
+
+        @include media.xl {
+            width: unset;
+        }
+    }
+}
