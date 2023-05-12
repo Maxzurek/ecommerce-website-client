@@ -17,7 +17,7 @@
     &__body {
         display: flex;
         flex-direction: column;
-        padding: 20px;
+        padding-inline: 20px;
         gap: 12px;
         background-color: inherit;
 
@@ -36,12 +36,10 @@
 
     &__image {
         width: 70%;
-        align-self: center;
         padding-bottom: 8px;
 
         @include media.lg {
-            width: 100%;
-            max-width: 360px;
+            width: 344px;
         }
     }
 
@@ -66,7 +64,9 @@
     }
 
     &__details {
+        padding-block: 12px;
         font: var(--font-text-2);
+        font-size: 16px;
         color: white;
         text-decoration: underline;
         cursor: pointer;
