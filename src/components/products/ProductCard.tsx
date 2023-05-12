@@ -1,7 +1,7 @@
 import "./ProductCard.scss";
 
 import { Product } from "../../interfaces/Product.interfaces";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Button from "../inputs/button/Button";
 
 interface ProductCardProps {
@@ -10,6 +10,8 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product, onShowAddToCartDialog }: ProductCardProps) => {
+    const prevLocation = useLocation();
+
     const { id, imageSrc, title, price } = product;
 
     const handleClickAddToCartButton = () => {
@@ -20,7 +22,7 @@ const ProductCard = ({ product, onShowAddToCartDialog }: ProductCardProps) => {
         <div className="product-card">
             <Link
                 className="app__link-unstyled"
-                state={{ productId: id }}
+                state={{ productId: id, prevLocation }}
                 to={`/product-page/${id}`}
             >
                 <img alt="Product" className="product-card__image" src={imageSrc} />
