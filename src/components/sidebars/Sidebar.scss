@@ -1,0 +1,42 @@
+@use "../../scss/MediaBreakpoints.scss" as media;
+
+.sidebar {
+    --sidebar-width: 400px;
+    --sidebar-width-mobile: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    position: fixed;
+    top: 0;
+    right: calc(var(--sidebar-width-mobile) * -1);
+    width: var(--sidebar-width-mobile);
+    height: 100vh;
+    transition: right 0.5s ease-out;
+    background-color: var(--main-bg-color);
+    z-index: 1;
+
+    @include media.md {
+        right: calc(var(--sidebar-width) * -1);
+        width: var(--sidebar-width);
+
+        &--open {
+            right: 0;
+        }
+    }
+
+    &--open {
+        right: 0;
+    }
+
+    &__click-outside-area {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: black;
+        opacity: 0.6;
+        z-index: 1;
+    }
+}

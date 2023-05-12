@@ -6,7 +6,7 @@ import { useRef, useState } from "react";
 import CartButton from "./CartButton";
 import LoginButton from "./LoginButton";
 import Menu from "../../assets/Menu.icon";
-import SidebarMenu from "../sidebarMenu/SidebarMenu";
+import SidebarMenu from "../sidebars/sidebarMenu/SidebarMenu";
 import MediaQuery, { MediaWidth } from "../mediaQuery/MediaQuery";
 
 const Header = () => {
@@ -34,10 +34,12 @@ const Header = () => {
     };
 
     const handleClickMenu = () => {
+        document.body.style.overflow = "hidden";
         setIsSidebarMenuOpen(true);
     };
 
     const handleCloseSidebarMenu = () => {
+        document.body.style.overflow = "unset";
         setIsSidebarMenuOpen(false);
     };
 
