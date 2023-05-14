@@ -21,6 +21,8 @@ const SearchBar = forwardRef<HTMLInputElement, SearchBarProps>(
             setIsFocused(false);
         };
 
+        // TODO Finish SearchBar
+
         return (
             <div className={withClassNames(["search-bar", isFocused && "search-bar--focused"])}>
                 <input

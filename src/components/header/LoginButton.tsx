@@ -2,6 +2,8 @@ import User from "../../assets/User.icon";
 import "./LoginButton.scss";
 
 const LoginButton = () => {
+    // TODO Implement google login?
+
     return (
         <div className="login-button">
             <User className="login-button__user-icon" />
