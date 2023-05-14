@@ -16,7 +16,7 @@
     background-color: var(--main-bg-color);
     z-index: 1;
 
-    @include media.md {
+    @include media.sm {
         right: calc(var(--sidebar-width) * -1);
         width: var(--sidebar-width);
 
