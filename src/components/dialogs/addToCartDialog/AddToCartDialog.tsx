@@ -9,20 +9,25 @@ import { assertIsNode } from "../../../utilities/Global.utils";
 import NumberInput from "../../inputs/numberInput/NumberInput";
 import Button from "../../inputs/button/Button";
 import { Link, useLocation } from "react-router-dom";
+import { useCartDispatch } from "../../../hooks/useCart";
+import { CartItem } from "../../../interfaces/Cart.interfaces";
+import { generateRandomId } from "../../../utilities/Math.utils";
 
 interface AddToCartDialogProps {
     product: Product;
     onClose: () => void;
+    onOpenCart: () => void;
 }
 
 const AddToCartDialog = forwardRef<BaseDialogRef, AddToCartDialogProps>(
-    ({ product, onClose }, ref) => {
+    ({ product, onClose, onOpenCart }, ref) => {
         const [isSelectProductSizeOpen, setIsSelectProductSizeOpen] = useState(false);
         const [productSize, setProductSize] = useState<ProductSize>();
         const [productQuantity, setProductQuantity] = useState(1);
         const [isErrorSelectSize, setIsErrorSelectSize] = useState(false);
 
         const prevLocation = useLocation();
+        const cartDispatch = useCartDispatch();
 
         const selectRef = useRef<HTMLDivElement>();
 
@@ -63,7 +68,16 @@ const AddToCartDialog = forwardRef<BaseDialogRef, AddToCartDialogProps>(
                 return;
             }
 
-            // TODO Add to cart
+            const cartItem: CartItem = {
+                id: generateRandomId(),
+                product: product,
+                quantity: productQuantity,
+                size: productSize
+            };
+            cartDispatch({ type: "addItem", payload: cartItem });
+
+            onOpenCart();
+            handleCloseDialog();
         };
 
         const handleBuyNow = () => {
@@ -122,9 +136,10 @@ const AddToCartDialog = forwardRef<BaseDialogRef, AddToCartDialogProps>(
                         </Select>
                         <NumberInput
                             label="Quantity"
-                            max={99999}
+                            max={9999}
                             min={1}
                             value={productQuantity}
+                            withArrow
                             onChange={handleChangeInputQuantity}
                         />
                         <div className="add-to-cart-dialog__buttons">

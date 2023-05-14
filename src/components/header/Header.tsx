@@ -6,12 +6,18 @@ import { useRef, useState } from "react";
 import CartButton from "./CartButton";
 import LoginButton from "./LoginButton";
 import Menu from "../../assets/Menu.icon";
-import SidebarMenu from "../sidebars/sidebarMenu/SidebarMenu";
 import MediaQuery, { MediaWidth } from "../mediaQuery/MediaQuery";
+import { useCartState } from "../../hooks/useCart";
 
-const Header = () => {
+interface HeaderProps {
+    onOpenMenu: () => void;
+    onOpenCart: () => void;
+}
+
+const Header = ({ onOpenMenu, onOpenCart }: HeaderProps) => {
     const [searchInputValue, setSearchInputValue] = useState("");
-    const [isSidebarMenuOpen, setIsSidebarMenuOpen] = useState(false);
+
+    const cartState = useCartState();
 
     const searchBarRef = useRef<HTMLInputElement>();
     const scrollAnchorRef = useRef<HTMLDivElement>();
@@ -27,20 +33,6 @@ const Header = () => {
     const handleClearSearchBar = () => {
         setSearchInputValue("");
         searchBarRef.current?.focus();
-    };
-
-    const handleClickCart = () => {
-        // TODO
-    };
-
-    const handleClickMenu = () => {
-        document.body.style.overflow = "hidden";
-        setIsSidebarMenuOpen(true);
-    };
-
-    const handleCloseSidebarMenu = () => {
-        document.body.style.overflow = "unset";
-        setIsSidebarMenuOpen(false);
     };
 
     return (
@@ -68,11 +60,11 @@ const Header = () => {
                                 onClear={handleClearSearchBar}
                             />
                         </MediaQuery>
-                        <CartButton itemCount={0} onClick={handleClickCart} />
+                        <CartButton itemCount={cartState.items.length} onClick={onOpenCart} />
                         <MediaQuery minMediaWidth={MediaWidth.sm}>
                             <LoginButton />
                         </MediaQuery>
-                        <Menu className="header__menu" onClick={handleClickMenu} />
+                        <Menu className="header__menu" onClick={onOpenMenu} />
                     </div>
                 </div>
             </div>
@@ -86,7 +78,6 @@ const Header = () => {
                     />
                 </div>
             </MediaQuery>
-            <SidebarMenu isOpen={isSidebarMenuOpen} onClose={handleCloseSidebarMenu} />
             <div ref={scrollAnchorRef} />
         </div>
     );

@@ -28,6 +28,7 @@ const SidebarMenu = ({ isOpen, onClose }: SidebarMenuProps) => {
                             useMatch("/") && "app__link--active"
                         ])}
                         to="/"
+                        onClick={onClose}
                     >
                         Home
                     </Link>
@@ -37,6 +38,7 @@ const SidebarMenu = ({ isOpen, onClose }: SidebarMenuProps) => {
                             useMatch("/shop") && "app__link--active"
                         ])}
                         to="shop"
+                        onClick={onClose}
                     >
                         Shop
                     </Link>
@@ -46,6 +48,7 @@ const SidebarMenu = ({ isOpen, onClose }: SidebarMenuProps) => {
                             useMatch("/about-us") && "app__link--active"
                         ])}
                         to="about-us"
+                        onClick={onClose}
                     >
                         About Us
                     </Link>
@@ -55,6 +58,7 @@ const SidebarMenu = ({ isOpen, onClose }: SidebarMenuProps) => {
                             useMatch("/faq") && "app__link--active"
                         ])}
                         to="faq"
+                        onClick={onClose}
                     >
                         FAQ
                     </Link>

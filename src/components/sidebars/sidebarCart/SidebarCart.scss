@@ -1,0 +1,53 @@
+.sidebar-cart {
+    $padding: 28px;
+
+    &__header {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+        background-color: var(--accent-bg-color);
+    }
+
+    &__close-button {
+        padding: 8px;
+        position: absolute;
+        left: 40px;
+        cursor: pointer;
+
+        svg {
+            fill: white;
+            width: 10px;
+        }
+    }
+
+    &__header-text {
+        font: var(--font-text-3);
+        align-self: center;
+        justify-self: center;
+        font-size: 22px;
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        height: 60%;
+        gap: $padding;
+        overflow-y: scroll;
+        padding-inline: $padding;
+    }
+
+    &__footer {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding-inline: $padding;
+        padding-bottom: $padding;
+    }
+
+    &__subtotal {
+        font: var(--font-text-3);
+        font-size: 26px;
+    }
+}

@@ -12,8 +12,15 @@ import ExpandableDivWithLabel from "../../components/expandableDiv/ExpandableDiv
 import BaseDialog, { BaseDialogRef } from "../../components/dialogs/BaseDialog";
 import CaretLeft from "../../assets/CaretLeft.icon";
 import { getFormattedRouterRoutePathName } from "../../utilities/Global.utils";
+import { useCartDispatch } from "../../hooks/useCart";
+import { CartItem } from "../../interfaces/Cart.interfaces";
+import { generateRandomId } from "../../utilities/Math.utils";
 
-const ProductPage = () => {
+interface ProductPageProps {
+    onOpenCart: () => void;
+}
+
+const ProductPage = ({ onOpenCart }: ProductPageProps) => {
     const [isSelectProductSizeOpen, setIsSelectProductSizeOpen] = useState(false);
     const [productSize, setProductSize] = useState<ProductSize>();
     const [productQuantity, setProductQuantity] = useState(1);
@@ -21,6 +28,8 @@ const ProductPage = () => {
     const [isProductInfoExpanded, setIsProductInfoExpanded] = useState(true);
     const [isReturnAndRefundPolicyExpanded, setIsReturnAndRefundPolicyExpanded] = useState(false);
     const [isShippingInfoExpanded, setIsShippingInfoExpanded] = useState(false);
+
+    const cartDispatch = useCartDispatch();
 
     const navigate = useNavigate();
     const { productId } = useParams();
@@ -69,7 +78,15 @@ const ProductPage = () => {
             return;
         }
 
-        // TODO Add to cart
+        const cartItem: CartItem = {
+            id: generateRandomId(),
+            product: product,
+            quantity: productQuantity,
+            size: productSize
+        };
+        cartDispatch({ type: "addItem", payload: cartItem });
+
+        onOpenCart();
     };
 
     const handleBuyNow = () => {
@@ -149,9 +166,10 @@ const ProductPage = () => {
                 </Select>
                 <NumberInput
                     label="Quantity"
-                    max={99999}
+                    max={9999}
                     min={1}
                     value={productQuantity}
+                    withArrow
                     onChange={handleChangeInputQuantity}
                 />
                 <div className="product-page__buttons">

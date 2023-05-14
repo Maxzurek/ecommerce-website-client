@@ -10,16 +10,12 @@
     border: 1px solid white;
 
     @include media.xl {
-        height: 32px;
+        height: 20px;
     }
 
     ::-webkit-inner-spin-button {
         appearance: none;
         -webkit-appearance: none;
-    }
-
-    &__label {
-        font: var(--font-text-2);
     }
 
     input {
@@ -28,18 +24,44 @@
         background-color: transparent;
         outline: none;
         border: none;
+        text-align: center;
+    }
+
+    &__icon {
+        width: 24px;
+        fill: white;
+        cursor: pointer;
+
+        @include media.xl {
+            width: 16px;
+        }
+
+        &--arrow {
+            width: 20px;
+
+            @include media.xl {
+                width: 16px;
+            }
+        }
+    }
+
+    &--with-arrow {
+        input {
+            text-align: unset;
+        }
+    }
+
+    &__label {
+        font: var(--font-text-2);
     }
 
     &__spinner-arrow-container {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        gap: 4px;
-        cursor: pointer;
-    }
+        gap: 8px;
 
-    &__spinner-arrow {
-        width: 16px;
-        fill: white;
+        @include media.xl {
+            gap: 4px;
+        }
     }
 }
