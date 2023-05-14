@@ -104,9 +104,7 @@ export const useCartState = () => {
     const context = useContext(CartStateContext);
 
     if (!context) {
-        throw Error(
-            "useCartState must be used within a <{TM_FILENAME_BASE/^(use)(.*)/addItem/}Provider />"
-        );
+        throw Error("useCartState must be used within a <CartProvider />");
     }
 
     return context;
@@ -116,9 +114,7 @@ export const useCartDispatch = () => {
     const context = useContext(CartDispatchContext);
 
     if (!context) {
-        throw Error(
-            "useCartDispatch must be used within a <{TM_FILENAME_BASE/^(use)(.*)/addItem/}Provider />"
-        );
+        throw Error("useCartDispatch must be used within a <CartProvider />");
     }
 
     return context;

@@ -1,2 +1,84 @@
+@use "../../scss/MediaBreakpoints.scss" as media;
+
 .footer {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-block: 4%;
+    padding-inline: 25%;
+
+    @include media.md {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &__nav-links {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        row-gap: 8px;
+
+        @include media.md {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    &__link {
+        color: var(--font-color-lighter);
+        font: var(--font-text-2);
+        text-decoration: none;
+
+        &:hover {
+            color: var(--font-color-light);
+        }
+    }
+
+    &__social-container {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    &__subscribe-form {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding-block: 20px;
+
+        @include media.md {
+            flex-direction: row;
+        }
+    }
+
+    &__subscribe-button {
+        font-size: 14px;
+        height: 40px;
+    }
+
+    &__is-subscribed-text {
+        margin-top: 8px;
+        font: var(--font-text-2);
+    }
+
+    &__social-links {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 26px;
+
+        @include media.md {
+            align-self: flex-end;
+        }
+    }
+
+    &__social-icon {
+        fill: white;
+        width: 26px;
+        height: 26px;
+
+        @include media.md {
+            width: 20px;
+            height: 20px;
+        }
+    }
 }

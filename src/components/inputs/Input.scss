@@ -1,0 +1,48 @@
+@use "../../scss/MediaBreakpoints.scss" as media;
+
+.input {
+    $boxShadowWidth: 1px;
+    $boxShadowWidthFocused: 3px;
+
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    position: relative;
+    border-bottom: $boxShadowWidth solid white;
+    margin-bottom: -$boxShadowWidth;
+
+    &--focused,
+    &--error {
+        border-bottom: $boxShadowWidthFocused solid white;
+        margin-bottom: -$boxShadowWidthFocused;
+    }
+
+    &--error {
+        border-color: rgb(223, 49, 49);
+    }
+
+    input {
+        height: 32px;
+        padding: 3px 3px 3px 21px;
+        border: none;
+        outline: none;
+        font: var(--font-text-2);
+        background-color: transparent;
+    }
+
+    &__label {
+        position: absolute;
+        font: var(--font-text-2);
+        transition: transform var(--select-animation-duration);
+        background-color: inherit;
+        user-select: none;
+        pointer-events: none;
+
+        &--raised {
+            transform: translateY(-28px);
+
+            @include media.xl {
+                transform: translateY(-20px);
+            }
+        }
+    }
+}
