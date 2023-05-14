@@ -1,5 +1,6 @@
 import { createContext, Dispatch, ReactNode, useContext, useReducer } from "react";
 import { CartItem } from "../interfaces/Cart.interfaces";
+import useLocalStorageState from "./useLocalStorage";
 
 //#region State
 export interface CartState {
@@ -72,11 +73,28 @@ interface CartProps {
     children: ReactNode;
 }
 
+const defaultCartLocalState: CartState = {
+    items: []
+};
+
 export const CartProvider = ({ children }: CartProps) => {
-    const [state, dispatch] = useReducer(cartReducer, initialCartState);
+    const [cartLocalState, setCartLocalState] = useLocalStorageState<CartState>(
+        "cart-state",
+        defaultCartLocalState
+    );
+
+    const cartReducerMiddleWare = (state: CartState, action: CartAction): CartState => {
+        const newState = cartReducer(state, action);
+
+        setCartLocalState(newState);
+
+        return newState;
+    };
+
+    const [_state, dispatch] = useReducer(cartReducerMiddleWare, initialCartState);
 
     return (
-        <CartStateContext.Provider value={state}>
+        <CartStateContext.Provider value={cartLocalState}>
             <CartDispatchContext.Provider value={dispatch}>{children}</CartDispatchContext.Provider>
         </CartStateContext.Provider>
     );
