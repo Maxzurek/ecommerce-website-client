@@ -56,7 +56,9 @@ const NumberInput = ({ label, value, min, max, withArrow, onChange }: NumberInpu
                 ])}
             >
                 {!withArrow && (
-                    <Minus className="number-input__icon" onClick={handleDecrementValue} />
+                    <button className="number-input__button" onClick={handleDecrementValue}>
+                        <Minus className="number-input__icon" />
+                    </button>
                 )}
                 <input
                     ref={inputRef}
@@ -67,18 +69,18 @@ const NumberInput = ({ label, value, min, max, withArrow, onChange }: NumberInpu
                     onChange={handleChangeInput}
                 />
                 {!withArrow && (
-                    <Plus className="number-input__icon" onClick={handleIncrementValue} />
+                    <button className="number-input__button" onClick={handleIncrementValue}>
+                        <Plus className="number-input__icon" />
+                    </button>
                 )}
                 {withArrow && (
                     <div className="number-input__spinner-arrow-container">
-                        <CaretUp
-                            className="number-input__icon number-input__icon--arrow"
-                            onClick={handleIncrementValue}
-                        />
-                        <CaretDown
-                            className="number-input__icon number-input__icon--arrow"
-                            onClick={handleIncrementValue}
-                        />
+                        <button className="number-input__button" onClick={handleIncrementValue}>
+                            <CaretUp className="number-input__icon number-input__icon--arrow" />
+                        </button>
+                        <button className="number-input__button" onClick={handleDecrementValue}>
+                            <CaretDown className="number-input__icon number-input__icon--arrow" />
+                        </button>
                     </div>
                 )}
             </div>
