@@ -10,7 +10,7 @@ interface ShopProps {
 }
 
 const Shop = ({ onShowAddToCartDialog }: ShopProps) => {
-    const newArrivals = products.men.shirt.filter((product) => product.isNew);
+    const newArrivals = products.filter((product) => product.isNew);
 
     return (
         <div className="shop">
@@ -27,7 +27,7 @@ const Shop = ({ onShowAddToCartDialog }: ShopProps) => {
             </ProductList>
             <span className="shop__header">SHOP ALL</span>
             <ProductList>
-                {products.men.shirt.map((product) => (
+                {products.map((product) => (
                     <ProductCard
                         key={product.id}
                         isNew={product.isNew}

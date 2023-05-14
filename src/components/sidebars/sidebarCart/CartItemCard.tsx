@@ -20,7 +20,7 @@ const CartItemCard = ({ item, onQuantityChange, onRemoveItem }: CartItemCardProp
     const { id, quantity, size } = item;
 
     const product = useMemo(
-        () => products.men.shirt.find((product) => product.id === item.productId),
+        () => products.find((product) => product.id === item.productId),
         [item.productId]
     );
 

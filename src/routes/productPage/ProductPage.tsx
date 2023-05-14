@@ -40,9 +40,7 @@ const ProductPage = ({ onOpenCart }: ProductPageProps) => {
     const dialogRef = useRef<BaseDialogRef>();
 
     const product = useMemo(
-        () =>
-            products.men.shirt.find((product) => product.id === productId) ||
-            products.women.shirt.find((product) => product.id === productId),
+        () => products.find((product) => product.id === productId),
         [productId]
     );
 

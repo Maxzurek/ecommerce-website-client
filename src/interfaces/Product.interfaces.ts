@@ -6,15 +6,6 @@ export interface Product {
     isNew?: boolean;
 }
 
-export interface ProductList {
-    men: {
-        shirt: Product[];
-    };
-    women: {
-        shirt: Product[];
-    };
-}
-
 export enum ProductSize {
     Small = "Small",
     Medium = "Medium",

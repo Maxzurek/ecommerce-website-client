@@ -25,7 +25,7 @@ const SidebarCart = ({ isOpen, items, onClose }: SidebarCartProps) => {
         let subtotal = 0;
 
         for (const item of items) {
-            const product = products.men.shirt.find((product) => product.id === item.productId);
+            const product = products.find((product) => product.id === item.productId);
             subtotal += Number(product.price) * item.quantity;
         }
 
