@@ -80,7 +80,7 @@ const ProductPage = ({ onOpenCart }: ProductPageProps) => {
 
         const cartItem: CartItem = {
             id: generateRandomId(),
-            product: product,
+            productId: product.id,
             quantity: productQuantity,
             size: productSize
         };

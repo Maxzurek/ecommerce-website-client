@@ -10,6 +10,7 @@ import { numberWithCommas } from "../../../utilities/Number.utils";
 import Button from "../../inputs/button/Button";
 import { withClassNames } from "../../../utilities/WithClassNames";
 import { Link } from "react-router-dom";
+import { products } from "../../../Products";
 
 interface SidebarCartProps {
     isOpen: boolean;
@@ -24,7 +25,8 @@ const SidebarCart = ({ isOpen, items, onClose }: SidebarCartProps) => {
         let subtotal = 0;
 
         for (const item of items) {
-            subtotal += Number(item.product.price) * item.quantity;
+            const product = products.men.shirt.find((product) => product.id === item.productId);
+            subtotal += Number(product.price) * item.quantity;
         }
 
         return numberWithCommas(subtotal);

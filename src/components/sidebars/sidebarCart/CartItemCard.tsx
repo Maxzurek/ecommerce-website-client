@@ -6,6 +6,7 @@ import Close from "../../../assets/Close.icon";
 import { useMemo, useState } from "react";
 import { numberWithCommas } from "../../../utilities/Number.utils";
 import { withClassNames } from "../../../utilities/WithClassNames";
+import { products } from "../../../Products";
 
 interface CartItemCardProps {
     item: CartItem;
@@ -16,7 +17,12 @@ interface CartItemCardProps {
 const CartItemCard = ({ item, onQuantityChange, onRemoveItem }: CartItemCardProps) => {
     const [isRemoved, setIsRemoved] = useState(false);
 
-    const { id, product, quantity, size } = item;
+    const { id, quantity, size } = item;
+
+    const product = useMemo(
+        () => products.men.shirt.find((product) => product.id === item.productId),
+        [item.productId]
+    );
 
     const totalPrice = useMemo(
         () => numberWithCommas(Number(product.price) * quantity),
