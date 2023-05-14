@@ -2,16 +2,22 @@ import "./RouterOutlet.scss";
 
 import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
+import { usePrevious } from "../../hooks/usePrevious";
 
 const RouterOutlet = () => {
-    const { key } = useLocation();
+    const { pathname } = useLocation();
+    const prevLocation = usePrevious(pathname);
 
     useEffect(() => {
+        if (prevLocation === pathname) {
+            return;
+        }
+
         document.body.scrollTo({ top: 0 });
-    }, [key]);
+    }, [pathname, prevLocation]);
 
     return (
-        <div key={key} className="router-outlet">
+        <div key={pathname} className="router-outlet">
             <Outlet />
         </div>
     );
