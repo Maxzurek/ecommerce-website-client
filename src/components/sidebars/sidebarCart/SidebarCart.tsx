@@ -8,6 +8,8 @@ import { useCartDispatch } from "../../../hooks/useCart";
 import { useMemo } from "react";
 import { numberWithCommas } from "../../../utilities/Number.utils";
 import Button from "../../inputs/button/Button";
+import { withClassNames } from "../../../utilities/WithClassNames";
+import { Link } from "react-router-dom";
 
 interface SidebarCartProps {
     isOpen: boolean;
@@ -28,6 +30,8 @@ const SidebarCart = ({ isOpen, items, onClose }: SidebarCartProps) => {
         return numberWithCommas(subtotal);
     }, [items]);
 
+    const isCartEmpty = items.length === 0;
+
     const handleChangeQuantity = (itemId: string, quantity: number) => {
         cartDispatch({ type: "updateItemQuantity", payload: { itemId, newQuantity: quantity } });
     };
@@ -44,7 +48,15 @@ const SidebarCart = ({ isOpen, items, onClose }: SidebarCartProps) => {
                 </div>
                 <span className="sidebar-cart__header-text">Cart</span>
             </div>
-            <div className="sidebar-cart__body">
+            <div
+                className={withClassNames([
+                    "sidebar-cart__body",
+                    isCartEmpty && "sidebar-cart__body--empty"
+                ])}
+            >
+                {isCartEmpty && (
+                    <span className="sidebar-cart__empty-cart">Your cart is empty</span>
+                )}
                 {items.map((item) => (
                     <CartItemCard
                         key={item.id}
@@ -55,9 +67,17 @@ const SidebarCart = ({ isOpen, items, onClose }: SidebarCartProps) => {
                 ))}
             </div>
             <div className="sidebar-cart__footer">
-                <span className="sidebar-cart__subtotal">Subtotal</span>
-                <span className="sidebar-cart__subtotal">{`C$${subtotal}`}</span>
-                <Button theme="dark">Checkout</Button>
+                {isCartEmpty ? (
+                    <Link to={"/shop"} onClick={onClose}>
+                        <Button theme="dark">Shop All</Button>
+                    </Link>
+                ) : (
+                    <>
+                        <span className="sidebar-cart__subtotal">Subtotal</span>
+                        <span className="sidebar-cart__subtotal">{`C$${subtotal}`}</span>
+                        <Button theme="dark">Checkout</Button>
+                    </>
+                )}
             </div>
         </Sidebar>
     );

@@ -34,8 +34,12 @@
         flex-direction: column;
         height: 60%;
         gap: $padding;
-        overflow-y: scroll;
+        overflow-y: auto;
         padding-inline: $padding;
+
+        &--empty {
+            justify-content: center;
+        }
     }
 
     &__footer {
@@ -49,5 +53,10 @@
     &__subtotal {
         font: var(--font-text-3);
         font-size: 26px;
+    }
+
+    &__empty-cart {
+        font: var(--font-text-3);
+        text-align: center;
     }
 }
