@@ -7,17 +7,19 @@ interface ButtonProps
         HTMLButtonElement
     > {
     theme: "light" | "dark" | "transparent";
-    inverseColorOnHover?: boolean;
+    invertOnHover?: boolean;
 }
 
-const Button = ({ theme, inverseColorOnHover, ...buttonProps }: ButtonProps) => {
+const Button = ({ theme, invertOnHover, ...buttonProps }: ButtonProps) => {
     return (
         <button
             {...buttonProps}
             className={withClassNames([
                 "button",
                 `button--${theme}`,
-                inverseColorOnHover ? "button--inverse-on-hover" : "button--opacity-on-hover",
+                invertOnHover
+                    ? `button--${theme}-invert-color-on-hover`
+                    : "button--opacity-on-hover",
                 buttonProps.className
             ])}
         />

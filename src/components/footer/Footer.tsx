@@ -106,7 +106,7 @@ const Footer = () => {
                             </div>
                         )}
                     </div>
-                    <Button className="footer__subscribe-button" inverseColorOnHover theme="dark">
+                    <Button className="footer__subscribe-button" invertOnHover theme="dark">
                         SUBSCRIBE
                     </Button>
                 </form>

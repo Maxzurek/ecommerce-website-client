@@ -143,7 +143,7 @@ const AddToCartDialog = forwardRef<BaseDialogRef, AddToCartDialogProps>(
                             onChange={handleChangeInputQuantity}
                         />
                         <div className="add-to-cart-dialog__buttons">
-                            <Button inverseColorOnHover theme="light" onClick={handleAddToCart}>
+                            <Button invertOnHover theme="light" onClick={handleAddToCart}>
                                 Add to Cart
                             </Button>
                             <Button theme="dark" onClick={handleBuyNow}>

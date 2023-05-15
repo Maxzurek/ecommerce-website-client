@@ -16,22 +16,14 @@ const Home = ({ onShowAddToCartDialog }: HomeProps) => {
     return (
         <div className="home">
             <div className="home__banner-image">
-                <img
-                    alt="home-banner-large"
-                    className="home__banner-image"
-                    src="./images/home-banner.png"
-                />
+                <img alt="home-banner-large" src="./images/home-image.png" />
                 <span className="home__banner-image-slogan">
                     WEAR
                     <br />
                     YOUR ATTITUDE
                 </span>
                 <span className="home__banner-image-new-arrivals">NEW ARRIVALS ARE HERE</span>
-                <Button
-                    className="home__banner-image-button-shop-now"
-                    inverseColorOnHover
-                    theme="transparent"
-                >
+                <Button className="home__banner-image-button-shop-now" invertOnHover theme="light">
                     <Link className="app__link-unstyled" to="shop">
                         Shop Now
                     </Link>
@@ -47,7 +39,7 @@ const Home = ({ onShowAddToCartDialog }: HomeProps) => {
                     />
                 ))}
             </ProductList>
-            <Button className="home__button-shop-all" inverseColorOnHover theme="dark">
+            <Button className="home__button-shop-all" invertOnHover theme="dark">
                 <Link className="app__link-unstyled" to="shop">
                     Shop All
                 </Link>

@@ -33,7 +33,7 @@ const ProductCard = ({ product, isNew, onShowAddToCartDialog }: ProductCardProps
                     <span className="product-card__price">{`C$${price}`}</span>
                 </div>
             </Link>
-            <Button inverseColorOnHover theme="light" onClick={handleClickAddToCartButton}>
+            <Button invertOnHover theme="light" onClick={handleClickAddToCartButton}>
                 Add to Cart
             </Button>
         </div>

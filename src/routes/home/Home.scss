@@ -21,29 +21,44 @@
 
         &-slogan {
             position: absolute;
-            left: 25%;
-            top: 20%;
-            transform: translate(-50%, -20%);
+            left: 5%;
+            top: 25%;
+            transform: translate(-5%, -25%);
             font: var(--font-text-1);
-            font-size: 7vw;
+            font-size: 6vw;
             white-space: nowrap;
         }
 
         &-new-arrivals {
             position: absolute;
             left: 50%;
-            top: 58%;
-            transform: translate(-50%, -20%);
+            top: 65%;
+            transform: translate(-50%, -65%);
             font: var(--font-text-3);
-            font-size: 3vw;
+            font-size: 4vw;
+            white-space: nowrap;
+
+            @include media.lg {
+                top: 75%;
+                transform: translate(-50%, -75%);
+            }
         }
 
         &-button-shop-now {
             position: absolute;
             left: 50%;
-            top: 75%;
-            transform: translate(-50%, -20%);
+            top: 90%;
+            transform: translate(-50%, -90%);
             width: unset;
+            font-size: 12px;
+
+            @include media.sm {
+                font-size: 16px;
+            }
+
+            @include media.lg {
+                width: 140px;
+            }
         }
 
         animation-name: slide-up;

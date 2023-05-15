@@ -171,7 +171,7 @@ const ProductPage = ({ onOpenCart }: ProductPageProps) => {
                     onChange={handleChangeInputQuantity}
                 />
                 <div className="product-page__buttons">
-                    <Button inverseColorOnHover theme="light" onClick={handleAddToCart}>
+                    <Button invertOnHover theme="light" onClick={handleAddToCart}>
                         Add to Cart
                     </Button>
                     <Button theme="dark" onClick={handleBuyNow}>

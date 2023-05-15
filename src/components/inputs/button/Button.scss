@@ -17,40 +17,40 @@
         color: rgb(24, 24, 24);
         border: 1px solid rgb(24, 24, 24);
         background-color: white;
+
+        &-invert-color-on-hover {
+            &:hover {
+                color: white;
+                border: 1px solid white;
+                background-color: rgb(24, 24, 24);
+            }
+        }
     }
 
     &--dark {
         color: white;
         border: 1px solid white;
         background-color: rgb(24, 24, 24);
+
+        &-invert-color-on-hover {
+            &:hover {
+                color: rgb(24, 24, 24);
+                border: 1px solid rgb(24, 24, 24);
+                background-color: white;
+            }
+        }
     }
 
     &--transparent {
         color: white;
         border: 1px solid white;
         background-color: transparent;
-    }
 
-    &--light.button--inverse-on-hover {
-        &:hover {
-            color: white;
-            border: 1px solid white;
-            background-color: rgb(24, 24, 24);
-        }
-    }
-
-    &--dark.button--inverse-on-hover {
-        &:hover {
-            color: rgb(24, 24, 24);
-            border: 1px solid rgb(24, 24, 24);
-            background-color: white;
-        }
-    }
-
-    &--transparent.button--inverse-on-hover {
-        &:hover {
-            color: rgb(24, 24, 24);
-            background-color: white;
+        &-invert-color-on-hover {
+            &:hover {
+                color: rgb(24, 24, 24);
+                background-color: white;
+            }
         }
     }
 }
