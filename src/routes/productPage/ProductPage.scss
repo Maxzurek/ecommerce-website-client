@@ -39,6 +39,17 @@
         background-color: inherit;
     }
 
+    &__image-container {
+        display: flex;
+        justify-content: center;
+
+        &:hover {
+            .product-page__image {
+                transform: rotateY(180deg);
+            }
+        }
+    }
+
     &__image {
         width: 70%;
         align-self: center;

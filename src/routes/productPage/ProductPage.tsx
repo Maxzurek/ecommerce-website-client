@@ -123,12 +123,14 @@ const ProductPage = ({ onOpenCart }: ProductPageProps) => {
                 <div>{`Back to ${previousRoute}`}</div>
             </div>
             <div />
-            <img
-                alt="Product"
-                className="product-page__image"
-                src={product.imageSrc}
-                onClick={handleClickProductImage}
-            />
+            <div className="product-page__image-container">
+                <img
+                    alt="Product"
+                    className="product-page__image"
+                    src={product.imageSrc}
+                    onClick={handleClickProductImage}
+                />
+            </div>
             <div className="product-page__inputs">
                 <span className="product-page__title">{product.title}</span>
                 <span className="product-page__price">{`C$${product.price}`}</span>
