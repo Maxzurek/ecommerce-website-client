@@ -2,7 +2,7 @@ import "./Header.scss";
 
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import CartButton from "./CartButton";
 import LoginButton from "./LoginButton";
 import Menu from "../../assets/Menu.icon";
@@ -15,24 +15,12 @@ interface HeaderProps {
 }
 
 const Header = ({ onOpenMenu, onOpenCart }: HeaderProps) => {
-    const [searchInputValue, setSearchInputValue] = useState("");
-
     const cartState = useCartState();
 
-    const searchBarRef = useRef<HTMLInputElement>();
     const scrollAnchorRef = useRef<HTMLDivElement>();
 
     const handleClickLogo = () => {
         document.body.scrollTo({ top: 0, behavior: "smooth" });
-    };
-
-    const handleChangeSearchBar = (e: React.FormEvent<HTMLInputElement>) => {
-        setSearchInputValue(e.currentTarget.value);
-    };
-
-    const handleClearSearchBar = () => {
-        setSearchInputValue("");
-        searchBarRef.current?.focus();
     };
 
     return (
@@ -53,12 +41,7 @@ const Header = ({ onOpenMenu, onOpenCart }: HeaderProps) => {
                 <div className="header__column">
                     <div className="header__controls">
                         <MediaQuery minMediaWidth={MediaWidth.lg}>
-                            <SearchBar
-                                ref={searchBarRef}
-                                value={searchInputValue}
-                                onChange={handleChangeSearchBar}
-                                onClear={handleClearSearchBar}
-                            />
+                            <SearchBar />
                         </MediaQuery>
                         <CartButton itemCount={cartState.items.length} onClick={onOpenCart} />
                         <MediaQuery minMediaWidth={MediaWidth.sm}>
@@ -70,12 +53,7 @@ const Header = ({ onOpenMenu, onOpenCart }: HeaderProps) => {
             </div>
             <MediaQuery maxMediaWidth={MediaWidth.lg}>
                 <div className="header__touch-search-bar">
-                    <SearchBar
-                        ref={searchBarRef}
-                        value={searchInputValue}
-                        onChange={handleChangeSearchBar}
-                        onClear={handleClearSearchBar}
-                    />
+                    <SearchBar />
                 </div>
             </MediaQuery>
             <div ref={scrollAnchorRef} />
