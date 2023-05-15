@@ -96,7 +96,11 @@ const App = () => {
                         text={featureNotAvailableDialogText}
                         onClose={handleCloseFeatureNotAvailableDialog}
                     />
-                    <SidebarMenu isOpen={isSidebarMenuOpen} onClose={handleCloseSidebarMenu} />
+                    <SidebarMenu
+                        isOpen={isSidebarMenuOpen}
+                        onClose={handleCloseSidebarMenu}
+                        onLogin={handleLogin}
+                    />
                     <SidebarCart
                         isOpen={isSidebarCartOpen}
                         items={cartState.items}

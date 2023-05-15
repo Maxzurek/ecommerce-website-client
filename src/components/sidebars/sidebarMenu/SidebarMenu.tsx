@@ -16,9 +16,10 @@ import MediaQuery, { MediaWidth } from "../../mediaQuery/MediaQuery";
 interface SidebarMenuProps {
     isOpen: boolean;
     onClose: () => void;
+    onLogin: () => void;
 }
 
-const SidebarMenu = ({ isOpen, onClose }: SidebarMenuProps) => {
+const SidebarMenu = ({ isOpen, onClose, onLogin }: SidebarMenuProps) => {
     return (
         <Sidebar isOpen={isOpen} onClose={onClose}>
             <CloseThin className="sidebar-menu__close-button" onClick={onClose} />
@@ -26,7 +27,7 @@ const SidebarMenu = ({ isOpen, onClose }: SidebarMenuProps) => {
                 <div className="sidebar-menu__nav-links">
                     <MediaQuery maxMediaWidth={MediaWidth.sm}>
                         <div className="sidebar-menu__login">
-                            <LoginButton />
+                            <LoginButton onLogin={onLogin} />
                         </div>
                     </MediaQuery>
                     <Link
