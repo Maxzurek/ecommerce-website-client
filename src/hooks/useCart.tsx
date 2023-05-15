@@ -73,14 +73,10 @@ interface CartProps {
     children: ReactNode;
 }
 
-const defaultCartLocalState: CartState = {
-    items: []
-};
-
 export const CartProvider = ({ children }: CartProps) => {
     const [cartLocalState, setCartLocalState] = useLocalStorageState<CartState>(
         "cart-state",
-        defaultCartLocalState
+        initialCartState
     );
 
     const cartReducerMiddleWare = (state: CartState, action: CartAction): CartState => {
@@ -91,7 +87,7 @@ export const CartProvider = ({ children }: CartProps) => {
         return newState;
     };
 
-    const [_state, dispatch] = useReducer(cartReducerMiddleWare, initialCartState);
+    const [_state, dispatch] = useReducer(cartReducerMiddleWare, cartLocalState);
 
     return (
         <CartStateContext.Provider value={cartLocalState}>
