@@ -10,6 +10,8 @@ import Youtube from "../../../assets/Youtube.icon";
 import Pinterest from "../../../assets/Pinterest.icon";
 import Instagram from "../../../assets/Instagram.icon";
 import Sidebar from "../Sidebar";
+import LoginButton from "../../header/LoginButton";
+import MediaQuery, { MediaWidth } from "../../mediaQuery/MediaQuery";
 
 interface SidebarMenuProps {
     isOpen: boolean;
@@ -22,6 +24,11 @@ const SidebarMenu = ({ isOpen, onClose }: SidebarMenuProps) => {
             <CloseThin className="sidebar-menu__close-button" onClick={onClose} />
             <div className="sidebar-menu">
                 <div className="sidebar-menu__nav-links">
+                    <MediaQuery maxMediaWidth={MediaWidth.sm}>
+                        <div className="sidebar-menu__login">
+                            <LoginButton />
+                        </div>
+                    </MediaQuery>
                     <Link
                         className={withClassNames([
                             "app__link",

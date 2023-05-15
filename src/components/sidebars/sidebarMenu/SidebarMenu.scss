@@ -33,6 +33,15 @@
         }
     }
 
+    &__login {
+        display: flex;
+        justify-content: center;
+        padding-block: 16px;
+        border-bottom: 1px solid white;
+        width: 50%;
+        margin-bottom: 32px;
+    }
+
     &__nav-links {
         display: flex;
         flex-direction: column;
