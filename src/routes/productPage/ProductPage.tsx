@@ -18,9 +18,10 @@ import { generateRandomId } from "../../utilities/Math.utils";
 
 interface ProductPageProps {
     onOpenCart: () => void;
+    onBuyNow: () => void;
 }
 
-const ProductPage = ({ onOpenCart }: ProductPageProps) => {
+const ProductPage = ({ onOpenCart, onBuyNow }: ProductPageProps) => {
     const [isSelectProductSizeOpen, setIsSelectProductSizeOpen] = useState(false);
     const [productSize, setProductSize] = useState<ProductSize>();
     const [productQuantity, setProductQuantity] = useState(1);
@@ -85,10 +86,6 @@ const ProductPage = ({ onOpenCart }: ProductPageProps) => {
         cartDispatch({ type: "addItem", payload: cartItem });
 
         onOpenCart();
-    };
-
-    const handleBuyNow = () => {
-        // TODO Buy now
     };
 
     const handleClickProductInfoLabel = () => {
@@ -176,7 +173,7 @@ const ProductPage = ({ onOpenCart }: ProductPageProps) => {
                     <Button invertOnHover theme="light" onClick={handleAddToCart}>
                         Add to Cart
                     </Button>
-                    <Button theme="dark" onClick={handleBuyNow}>
+                    <Button theme="dark" onClick={onBuyNow}>
                         Buy Now
                     </Button>
                 </div>

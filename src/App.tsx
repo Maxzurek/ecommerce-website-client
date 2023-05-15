@@ -17,15 +17,18 @@ import Faq from "./routes/faq/Faq";
 import SidebarCart from "./components/sidebars/sidebarCart/SidebarCart";
 import SidebarMenu from "./components/sidebars/sidebarMenu/SidebarMenu";
 import { useCartState } from "./hooks/useCart";
+import FeatureNotAvailableDialog from "./components/dialogs/featureNotAvailableDialog/FeatureNotAvailableDialog";
 
 const App = () => {
     const [addToCartProduct, setAddToCartProduct] = useState<Product>();
     const [isSidebarMenuOpen, setIsSidebarMenuOpen] = useState(false);
     const [isSidebarCartOpen, setIsSidebarCartOpen] = useState(false);
+    const [featureNotAvailableDialogText, setFeatureNotAvailableDialogText] = useState("");
 
     const cartState = useCartState();
 
     const addToCartDialogRef = useRef<BaseDialogRef>();
+    const featureNotAvailableDialogRef = useRef<BaseDialogRef>();
 
     const handleShowAddToCartDialog = (product: Product) => {
         setAddToCartProduct(product);
@@ -52,23 +55,52 @@ const App = () => {
         setIsSidebarCartOpen(false);
     };
 
+    const handleOpenFeatureNotAvailableDialog = () => {
+        featureNotAvailableDialogRef.current.open();
+    };
+
+    const handleCloseFeatureNotAvailableDialog = () => {
+        featureNotAvailableDialogRef.current.close();
+    };
+
+    const handleBuyNow = () => {
+        setFeatureNotAvailableDialogText("We can't accept online orders right now");
+        handleOpenFeatureNotAvailableDialog();
+    };
+
+    const handleLogin = () => {
+        setFeatureNotAvailableDialogText("This feature is not available");
+        handleOpenFeatureNotAvailableDialog();
+    };
+
     const router = createBrowserRouter([
         {
             element: (
                 <>
-                    <Header onOpenCart={handleOpenCart} onOpenMenu={handleOpenSidebarMenu} />
+                    <Header
+                        onLogin={handleLogin}
+                        onOpenCart={handleOpenCart}
+                        onOpenMenu={handleOpenSidebarMenu}
+                    />
                     <RouterOutlet />
                     <Footer />
                     <AddToCartDialog
                         ref={addToCartDialogRef}
                         product={addToCartProduct}
+                        onBuyNow={handleBuyNow}
                         onClose={handleCloseAddToCartDialog}
                         onOpenCart={handleOpenCart}
+                    />
+                    <FeatureNotAvailableDialog
+                        ref={featureNotAvailableDialogRef}
+                        text={featureNotAvailableDialogText}
+                        onClose={handleCloseFeatureNotAvailableDialog}
                     />
                     <SidebarMenu isOpen={isSidebarMenuOpen} onClose={handleCloseSidebarMenu} />
                     <SidebarCart
                         isOpen={isSidebarCartOpen}
                         items={cartState.items}
+                        onCheckout={handleOpenFeatureNotAvailableDialog}
                         onClose={handleCloseSidebarCart}
                     />
                 </>
@@ -88,7 +120,7 @@ const App = () => {
                 },
                 {
                     path: "/product-page/:productId",
-                    element: <ProductPage onOpenCart={handleOpenCart} />
+                    element: <ProductPage onBuyNow={handleBuyNow} onOpenCart={handleOpenCart} />
                 },
                 {
                     path: "/faq",

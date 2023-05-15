@@ -16,9 +16,10 @@ interface SidebarCartProps {
     isOpen: boolean;
     items: CartItem[];
     onClose: () => void;
+    onCheckout: () => void;
 }
 
-const SidebarCart = ({ isOpen, items, onClose }: SidebarCartProps) => {
+const SidebarCart = ({ isOpen, items, onClose, onCheckout }: SidebarCartProps) => {
     const cartDispatch = useCartDispatch();
 
     const subtotal = useMemo(() => {
@@ -77,7 +78,9 @@ const SidebarCart = ({ isOpen, items, onClose }: SidebarCartProps) => {
                     <>
                         <span className="sidebar-cart__subtotal">Subtotal</span>
                         <span className="sidebar-cart__subtotal">{`C$${subtotal}`}</span>
-                        <Button theme="dark">Checkout</Button>
+                        <Button theme="dark" onClick={onCheckout}>
+                            Checkout
+                        </Button>
                     </>
                 )}
             </div>

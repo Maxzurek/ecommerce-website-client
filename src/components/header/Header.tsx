@@ -12,9 +12,10 @@ import { useCartState } from "../../hooks/useCart";
 interface HeaderProps {
     onOpenMenu: () => void;
     onOpenCart: () => void;
+    onLogin: () => void;
 }
 
-const Header = ({ onOpenMenu, onOpenCart }: HeaderProps) => {
+const Header = ({ onOpenMenu, onOpenCart, onLogin }: HeaderProps) => {
     const cartState = useCartState();
 
     const scrollAnchorRef = useRef<HTMLDivElement>();
@@ -45,7 +46,7 @@ const Header = ({ onOpenMenu, onOpenCart }: HeaderProps) => {
                         </MediaQuery>
                         <CartButton itemCount={cartState.items.length} onClick={onOpenCart} />
                         <MediaQuery minMediaWidth={MediaWidth.sm}>
-                            <LoginButton />
+                            <LoginButton onLogin={onLogin} />
                         </MediaQuery>
                         <Menu className="header__menu" onClick={onOpenMenu} />
                     </div>

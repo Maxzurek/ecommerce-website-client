@@ -17,10 +17,11 @@ interface AddToCartDialogProps {
     product: Product;
     onClose: () => void;
     onOpenCart: () => void;
+    onBuyNow: () => void;
 }
 
 const AddToCartDialog = forwardRef<BaseDialogRef, AddToCartDialogProps>(
-    ({ product, onClose, onOpenCart }, ref) => {
+    ({ product, onClose, onOpenCart, onBuyNow }, ref) => {
         const [isSelectProductSizeOpen, setIsSelectProductSizeOpen] = useState(false);
         const [productSize, setProductSize] = useState<ProductSize>();
         const [productQuantity, setProductQuantity] = useState(1);
@@ -78,10 +79,6 @@ const AddToCartDialog = forwardRef<BaseDialogRef, AddToCartDialogProps>(
 
             onOpenCart();
             handleCloseDialog();
-        };
-
-        const handleBuyNow = () => {
-            // TODO
         };
 
         const handleClickDetails = () => {
@@ -146,7 +143,7 @@ const AddToCartDialog = forwardRef<BaseDialogRef, AddToCartDialogProps>(
                             <Button invertOnHover theme="light" onClick={handleAddToCart}>
                                 Add to Cart
                             </Button>
-                            <Button theme="dark" onClick={handleBuyNow}>
+                            <Button theme="dark" onClick={onBuyNow}>
                                 Buy Now
                             </Button>
                         </div>
