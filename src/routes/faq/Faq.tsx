@@ -47,13 +47,13 @@ const Faq = () => {
             >
                 <p>
                     <span>
-                        Images were generated using Stable Diffusion text-to-image diffusion model.
+                        Images were generated using Midjourney&apos;s text-to-image generative AI.
                     </span>
                 </p>
                 <p>
                     <span>Visit </span>
-                    <a href="https://stablediffusionweb.com" rel="noreferrer" target="_blank">
-                        Stable Diffusion website
+                    <a href="https://www.midjourney.com" rel="noreferrer" target="_blank">
+                        Midjourney website
                     </a>
                     <span> to learn more.</span>
                 </p>
