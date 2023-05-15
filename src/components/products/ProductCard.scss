@@ -5,6 +5,12 @@
     position: relative;
     width: calc(140px + 12vw);
 
+    &:hover {
+        .product-card__image {
+            transform: rotateY(180deg);
+        }
+    }
+
     &__link {
         color: unset;
         text-decoration: none;
