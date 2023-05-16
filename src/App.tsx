@@ -73,6 +73,11 @@ const App = () => {
         handleOpenFeatureNotAvailableDialog();
     };
 
+    const handleCheckout = () => {
+        setFeatureNotAvailableDialogText("We can't accept online orders right now");
+        handleOpenFeatureNotAvailableDialog();
+    };
+
     const router = createBrowserRouter([
         {
             element: (
@@ -104,7 +109,7 @@ const App = () => {
                     <SidebarCart
                         isOpen={isSidebarCartOpen}
                         items={cartState.items}
-                        onCheckout={handleOpenFeatureNotAvailableDialog}
+                        onCheckout={handleCheckout}
                         onClose={handleCloseSidebarCart}
                     />
                 </>
